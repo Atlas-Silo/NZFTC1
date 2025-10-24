@@ -68,3 +68,25 @@ data/app.db
 *.db
 # ignore per-developer solution files
 NZFTC.*\*.sln
+
+# Visual Studio and build outputs
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+bin/
+obj/
+
+# Rider/IDE
+.idea/
+*.sln.iml
+
+# dotnet tools and local runtimes
+dotnet-tools.json
+
+# Per-developer solution placeholders
+NZFTC.*\*.sln
+
+# Local DB files
+*.db

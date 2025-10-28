@@ -1,0 +1,12 @@
+F:\NZFTC\src\NZFTC.MockServices\bin\Debug\net8.0\NZFTC.MockServices.deps.json
+F:\NZFTC\src\NZFTC.MockServices\bin\Debug\net8.0\NZFTC.MockServices.dll
+F:\NZFTC\src\NZFTC.MockServices\bin\Debug\net8.0\NZFTC.MockServices.pdb
+F:\NZFTC\src\NZFTC.MockServices\obj\Debug\net8.0\NZFTC.MockServices.GeneratedMSBuildEditorConfig.editorconfig
+F:\NZFTC\src\NZFTC.MockServices\obj\Debug\net8.0\NZFTC.MockServices.AssemblyInfoInputs.cache
+F:\NZFTC\src\NZFTC.MockServices\obj\Debug\net8.0\NZFTC.MockServices.AssemblyInfo.cs
+F:\NZFTC\src\NZFTC.MockServices\obj\Debug\net8.0\NZFTC.MockServices.csproj.CoreCompileInputs.cache
+F:\NZFTC\src\NZFTC.MockServices\obj\Debug\net8.0\NZFTC.MockServices.sourcelink.json
+F:\NZFTC\src\NZFTC.MockServices\obj\Debug\net8.0\NZFTC.MockServices.dll
+F:\NZFTC\src\NZFTC.MockServices\obj\Debug\net8.0\refint\NZFTC.MockServices.dll
+F:\NZFTC\src\NZFTC.MockServices\obj\Debug\net8.0\NZFTC.MockServices.pdb
+F:\NZFTC\src\NZFTC.MockServices\obj\Debug\net8.0\ref\NZFTC.MockServices.dll

@@ -1,0 +1,15 @@
+F:\NZFTC\src\NZFTC.Data\bin\Debug\net8.0\NZFTC.Data.deps.json
+F:\NZFTC\src\NZFTC.Data\bin\Debug\net8.0\NZFTC.Data.runtimeconfig.json
+F:\NZFTC\src\NZFTC.Data\bin\Debug\net8.0\NZFTC.Data.dll
+F:\NZFTC\src\NZFTC.Data\bin\Debug\net8.0\NZFTC.Data.pdb
+F:\NZFTC\src\NZFTC.Data\obj\Debug\net8.0\NZFTC.Data.csproj.AssemblyReference.cache
+F:\NZFTC\src\NZFTC.Data\obj\Debug\net8.0\NZFTC.Data.GeneratedMSBuildEditorConfig.editorconfig
+F:\NZFTC\src\NZFTC.Data\obj\Debug\net8.0\NZFTC.Data.AssemblyInfoInputs.cache
+F:\NZFTC\src\NZFTC.Data\obj\Debug\net8.0\NZFTC.Data.AssemblyInfo.cs
+F:\NZFTC\src\NZFTC.Data\obj\Debug\net8.0\NZFTC.Data.csproj.CoreCompileInputs.cache
+F:\NZFTC\src\NZFTC.Data\obj\Debug\net8.0\NZFTC.Data.sourcelink.json
+F:\NZFTC\src\NZFTC.Data\obj\Debug\net8.0\NZFTC.Data.dll
+F:\NZFTC\src\NZFTC.Data\obj\Debug\net8.0\refint\NZFTC.Data.dll
+F:\NZFTC\src\NZFTC.Data\obj\Debug\net8.0\NZFTC.Data.pdb
+F:\NZFTC\src\NZFTC.Data\obj\Debug\net8.0\NZFTC.Data.genruntimeconfig.cache
+F:\NZFTC\src\NZFTC.Data\obj\Debug\net8.0\ref\NZFTC.Data.dll

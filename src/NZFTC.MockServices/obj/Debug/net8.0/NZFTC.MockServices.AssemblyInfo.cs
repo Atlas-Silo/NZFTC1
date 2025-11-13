@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NZFTC.MockServices")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb3e1373805318d08caaea5d568d74f65b57a1f1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+168dda98a7f14569435e44bb367239b582c7d315")]
 [assembly: System.Reflection.AssemblyProductAttribute("NZFTC.MockServices")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NZFTC.MockServices")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

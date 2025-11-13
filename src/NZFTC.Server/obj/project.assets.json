@@ -3992,11 +3992,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\NZFTC\\src\\NZFTC.Server\\NZFTC.Server.csproj",
+      "projectUniqueName": "g:\\Repos\\NZFTC\\src\\NZFTC.Server\\NZFTC.Server.csproj",
       "projectName": "NZFTC.Server",
-      "projectPath": "F:\\NZFTC\\src\\NZFTC.Server\\NZFTC.Server.csproj",
+      "projectPath": "g:\\Repos\\NZFTC\\src\\NZFTC.Server\\NZFTC.Server.csproj",
       "packagesPath": "C:\\Users\\Ashra\\.nuget\\packages\\",
-      "outputPath": "F:\\NZFTC\\src\\NZFTC.Server\\obj\\",
+      "outputPath": "g:\\Repos\\NZFTC\\src\\NZFTC.Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4018,14 +4018,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "F:\\NZFTC\\src\\NZFTC.Data\\NZFTC.Data.csproj": {
-              "projectPath": "F:\\NZFTC\\src\\NZFTC.Data\\NZFTC.Data.csproj"
+            "g:\\Repos\\NZFTC\\src\\NZFTC.Data\\NZFTC.Data.csproj": {
+              "projectPath": "g:\\Repos\\NZFTC\\src\\NZFTC.Data\\NZFTC.Data.csproj"
             },
-            "F:\\NZFTC\\src\\NZFTC.MockServices\\NZFTC.MockServices.csproj": {
-              "projectPath": "F:\\NZFTC\\src\\NZFTC.MockServices\\NZFTC.MockServices.csproj"
+            "g:\\Repos\\NZFTC\\src\\NZFTC.MockServices\\NZFTC.MockServices.csproj": {
+              "projectPath": "g:\\Repos\\NZFTC\\src\\NZFTC.MockServices\\NZFTC.MockServices.csproj"
             },
-            "F:\\NZFTC\\src\\NZFTC.Shared\\NZFTC.Shared.csproj": {
-              "projectPath": "F:\\NZFTC\\src\\NZFTC.Shared\\NZFTC.Shared.csproj"
+            "g:\\Repos\\NZFTC\\src\\NZFTC.Shared\\NZFTC.Shared.csproj": {
+              "projectPath": "g:\\Repos\\NZFTC\\src\\NZFTC.Shared\\NZFTC.Shared.csproj"
             }
           }
         }

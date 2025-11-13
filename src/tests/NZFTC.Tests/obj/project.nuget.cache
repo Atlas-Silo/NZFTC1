@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UscRKowefFo=",
+  "dgSpecHash": "AgUsM6L/COA=",
   "success": true,
-  "projectFilePath": "F:\\NZFTC\\src\\tests\\NZFTC.Tests\\NZFTC.Tests.csproj",
+  "projectFilePath": "g:\\Repos\\NZFTC\\src\\tests\\NZFTC.Tests\\NZFTC.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ashra\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\Ashra\\.nuget\\packages\\microsoft.codecoverage\\18.0.0\\microsoft.codecoverage.18.0.0.nupkg.sha512",

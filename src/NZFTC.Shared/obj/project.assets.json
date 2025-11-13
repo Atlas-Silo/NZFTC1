@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\NZFTC\\src\\NZFTC.Shared\\NZFTC.Shared.csproj",
+      "projectUniqueName": "g:\\Repos\\NZFTC\\src\\NZFTC.Shared\\NZFTC.Shared.csproj",
       "projectName": "NZFTC.Shared",
-      "projectPath": "F:\\NZFTC\\src\\NZFTC.Shared\\NZFTC.Shared.csproj",
+      "projectPath": "g:\\Repos\\NZFTC\\src\\NZFTC.Shared\\NZFTC.Shared.csproj",
       "packagesPath": "C:\\Users\\Ashra\\.nuget\\packages\\",
-      "outputPath": "F:\\NZFTC\\src\\NZFTC.Shared\\obj\\",
+      "outputPath": "g:\\Repos\\NZFTC\\src\\NZFTC.Shared\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

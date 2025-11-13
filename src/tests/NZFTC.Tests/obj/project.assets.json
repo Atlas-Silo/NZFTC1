@@ -5574,11 +5574,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\NZFTC\\src\\tests\\NZFTC.Tests\\NZFTC.Tests.csproj",
+      "projectUniqueName": "g:\\Repos\\NZFTC\\src\\tests\\NZFTC.Tests\\NZFTC.Tests.csproj",
       "projectName": "NZFTC.Tests",
-      "projectPath": "F:\\NZFTC\\src\\tests\\NZFTC.Tests\\NZFTC.Tests.csproj",
+      "projectPath": "g:\\Repos\\NZFTC\\src\\tests\\NZFTC.Tests\\NZFTC.Tests.csproj",
       "packagesPath": "C:\\Users\\Ashra\\.nuget\\packages\\",
-      "outputPath": "F:\\NZFTC\\src\\tests\\NZFTC.Tests\\obj\\",
+      "outputPath": "g:\\Repos\\NZFTC\\src\\tests\\NZFTC.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

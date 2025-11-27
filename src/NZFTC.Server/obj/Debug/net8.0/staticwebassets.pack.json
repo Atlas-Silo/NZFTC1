@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\css\\reports.css"
     },
     {
+      "Id": "Y:\\NZFTC - Copy\\src\\NZFTC.Server\\wwwroot\\css\\shared\\sidebar.css",
+      "PackagePath": "staticwebassets\\css\\shared\\sidebar.css"
+    },
+    {
       "Id": "Y:\\NZFTC - Copy\\src\\NZFTC.Server\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

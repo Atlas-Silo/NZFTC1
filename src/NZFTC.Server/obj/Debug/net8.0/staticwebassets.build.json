@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "d44yjn8J8xmLOknXTJTXelF0+mA3HFULHq49tUqMkxU=",
+  "Hash": "i6cgjL5uzW2pDlqBNXyU260shCqREOsfFdkN2XOQ59E=",
   "Source": "NZFTC.Server",
   "BasePath": "_content/NZFTC.Server",
   "Mode": "Default",
@@ -1326,6 +1326,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\reports.css"
+    },
+    {
+      "Identity": "Y:\\NZFTC - Copy\\src\\NZFTC.Server\\wwwroot\\css\\shared\\sidebar.css",
+      "SourceId": "NZFTC.Server",
+      "SourceType": "Discovered",
+      "ContentRoot": "Y:\\NZFTC - Copy\\src\\NZFTC.Server\\wwwroot\\",
+      "BasePath": "_content/NZFTC.Server",
+      "RelativePath": "css/shared/sidebar.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\shared\\sidebar.css"
     },
     {
       "Identity": "Y:\\NZFTC - Copy\\src\\NZFTC.Server\\wwwroot\\css\\site.css",

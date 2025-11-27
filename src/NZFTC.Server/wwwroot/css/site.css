@@ -1,13 +1,20 @@
-/* Global styles for NZFTC Portal */
-* {
+/* Global styles for NZFTC  */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
     background: #f5f6fa;
     min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, .page-title, .section-title {
+    font-family: 'Inter', sans-serif;
 }
 .layout {
     display: flex;
@@ -81,7 +88,7 @@ body {
     color: #7f8c8d;
     font-size: 14px;
 }
-/* Employee Dashboard Styles (migrated from Employee.html) */
+/* Employee Dashboard Styles */
 .profile-card {
     background: white;
     padding: 30px;
@@ -299,6 +306,7 @@ body {
 }
 
 /* Authentication Pages (Login, ResetPassword, InvalidEntry) */
+/* TODOmove to _LoginLayout.css later */
 body.auth-page {
     display: flex;
     align-items: center;

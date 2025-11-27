@@ -9,9 +9,6 @@
     <partial name="_AdminSidebar" />
     
     <div class="main-content">
-        <partial name="_Topbar" />
-        
-
         @*Main dashboard for admin users showing key metrics*@ 
         <main class="content">
             <div class="dashboard-main">
@@ -36,6 +33,11 @@
     </div>
     
 </div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/shared/sidebar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+}
 
 @section Scripts {
    @*page specific script*@

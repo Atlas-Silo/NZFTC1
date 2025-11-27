@@ -30,8 +30,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxpbnZhbGlkVXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Account/login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxsb2dpbi5jc2h0bWw=
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Account/ResetPassword.cshtml]
@@ -148,10 +148,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Shared/_LoginLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Shared/_Topbar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Ub3BiYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Shared/_ValidationScriptsPartial.cshtml]

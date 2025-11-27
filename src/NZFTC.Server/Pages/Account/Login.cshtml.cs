@@ -38,7 +38,8 @@ namespace NZFTC.Server.Pages.Account
                 return Page();
 
             var result = await _signInManager.PasswordSignInAsync(
-                Input.Email,
+                Input.UserName, //added for username
+                //Input.Email, 2 inputs exeeds lockout threshold
                 Input.Password,
                 Input.RememberMe,
                 lockoutOnFailure: false
@@ -46,7 +47,7 @@ namespace NZFTC.Server.Pages.Account
 
             if (result.Succeeded)
             {
-                return RedirectToPage("/Dashboard/Employee");
+                return RedirectToPage("/Dashboard/Admin"); //insert role logic here
             }
 
             ErrorMessage = "Invalid login attempt.";
@@ -55,8 +56,12 @@ namespace NZFTC.Server.Pages.Account
 
         public class InputModel
         {
-            [Required, EmailAddress]
-            public string Email { get; set; } = string.Empty;
+            // Username field for PasswordSignInAsync
+            [Required, DataType(DataType.Text)]
+            public string UserName { get; set; } = string.Empty;
+
+            //[Required, EmailAddress]
+            //public string Email { get; set; } = string.Empty;
 
             [Required, DataType(DataType.Password)]
             public string Password { get; set; } = string.Empty;

@@ -33,6 +33,7 @@ builder.Services.AddSwaggerGen();
 // CORS
 var devOrigins = configuration.GetSection("Cors:AllowedOrigins").Get<string[]>()
                  ?? new[] { "http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:5173", "http://localhost:4200" };
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("LocalFrontend", p => p
@@ -44,12 +45,16 @@ builder.Services.AddCors(options =>
 
 // Register AppDbContext (SQLite fallback for local dev)
 var connectionString = configuration.GetConnectionString("DefaultConnection") ?? "Data Source=nzftc.db";
+
+
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlite(connectionString);
 });
 
 // Register Identity with custom User/Role
+//todo: confirm in login page
 builder.Services.AddIdentity<User, Role>(options =>
 {
     options.Password.RequireDigit = false;
@@ -140,12 +145,9 @@ app.Use(async (context, next) =>
 // Map endpoints
 app.MapControllers();
 app.MapRazorPages();
-
-// redirect default route to Account/Login.cshtml
-app.MapGet("/", () => Results.Redirect("/Account/Login"));
-
-
-
+//app.MapGet("/", () => Results.Redirect("/Account/Login")); // Default to login page
+//app.MapGet("/", () => Results.Redirect("/Dashboard/Admin")); // TEMP: bypass login for frontend work
+app.MapGet("/", () => Results.Redirect("/Dashboard/Employee")); // TEMP: bypass login for employee dashboard work
 
 // Removed Blazor-specific endpoints (MapBlazorHub, MapFallbackToPage("/_Host"))
 

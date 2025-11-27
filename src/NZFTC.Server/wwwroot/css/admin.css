@@ -1,5 +1,29 @@
 /* Admin-specific styles for NZFTC Portal */
 
+/* Layout Structure */
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Content Area */
+.content {
+    padding: 30px;
+    flex: 1;
+}
+
+/* Dashboard Main Grid */
+.dashboard-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
 /* Page Header with Action Buttons */
 .page-header {
     display: flex;
@@ -19,56 +43,22 @@
     font-size: 14px;
 }
 
-/* Sidebar Navigation */
+/* Admin Sidebar Theme (uses global .sidebar structure from shared/sidebar.css) */
 .sidebar {
-    width: 260px;
-    background: #2c3e50;
+    background: #213432;
     color: white;
-    position: fixed;
-    height: 100vh;
-    overflow-y: auto;
-    transition: transform 0.3s;
-}
-.main-content {
-    margin-left: 260px;
 }
 .sidebar-header {
-    padding: 20px;
-    background: #1a252f;
-    text-align: center;
-}
-.sidebar-header img {
-    max-width: 140px;
-    height: auto;
-    margin-bottom: 10px;
+    background: #1a2826;
 }
 .sidebar-header h2 {
-    font-size: 16px;
-    font-weight: 600;
     color: #ecf0f1;
-}
-.nav-menu {
-    padding: 20px 0;
-}
-.nav-section {
-    margin-bottom: 20px;
 }
 .nav-section-title {
-    padding: 10px 20px;
-    font-size: 11px;
-    text-transform: uppercase;
     color: #95a5a6;
-    font-weight: 600;
-    letter-spacing: 1px;
 }
 .nav-item {
-    display: flex;
-    align-items: center;
-    padding: 12px 20px;
     color: #ecf0f1;
-    text-decoration: none;
-    transition: all 0.3s;
-    border-left: 3px solid transparent;
 }
 .nav-item:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -78,11 +68,15 @@
     background: rgba(52, 152, 219, 0.2);
     border-left-color: #3498db;
 }
-.nav-item svg {
-    width: 20px;
-    height: 20px;
-    margin-right: 12px;
-    fill: currentColor;
+.sidebar-footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+.btn-logout-sidebar {
+    background: #e74c3c;
+    color: white;
+}
+.btn-logout-sidebar:hover {
+    background: #c0392b;
 }
 .kpi-grid {
     display: grid;

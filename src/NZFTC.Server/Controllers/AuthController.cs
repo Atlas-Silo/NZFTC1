@@ -43,3 +43,6 @@ namespace NZFTC.Server.Controllers
         }
     }
 }
+
+// TODO need the role logic function so I can call it in login, this connects to the API
+//security thing you set up

@@ -1,0 +1,134 @@
+@page
+@model MyLeaveRequestsModel
+@{
+    ViewData["Title"] = "My Leave Requests";
+    ViewData["PageTitle"] = "My Leave History";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/leave.css" asp-append-version="true" />
+}
+
+<div class="layout">
+    <partial name="_EmployeeSidebar" />
+
+    <div class="main-content">
+        <partial name="_Topbar" />
+
+        <main class="content">
+            <div class="page-header">
+                <div class="page-title">
+                    <h2>My Leave History</h2>
+                    <p>View and manage all your leave requests</p>
+                </div>
+                <a asp-page="Apply" class="btn-new-request">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                    New Leave Request
+                </a>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card total">
+                    <h3>Total Requests</h3>
+                    <div class="value">@Model.Stats.TotalRequests</div>
+                </div>
+                <div class="stat-card pending">
+                    <h3>Pending</h3>
+                    <div class="value">@Model.Stats.PendingRequests</div>
+                </div>
+                <div class="stat-card approved">
+                    <h3>Approved</h3>
+                    <div class="value">@Model.Stats.ApprovedRequests</div>
+                </div>
+                <div class="stat-card rejected">
+                    <h3>Rejected</h3>
+                    <div class="value">@Model.Stats.RejectedRequests</div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" data-tab="all">All Requests</button>
+                <button class="tab" data-tab="pending">
+                    Pending
+                    <span class="badge-count">@Model.Stats.PendingRequests</span>
+                </button>
+                <button class="tab" data-tab="approved">Approved</button>
+                <button class="tab" data-tab="history">Past Requests</button>
+            </div>
+
+            <!-- Requests Container -->
+            <div class="requests-container">
+                @foreach (var request in Model.LeaveRequests)
+                {
+                    <div class="request-card">
+                        <div class="request-header">
+                            <div class="request-info">
+                                <div class="request-title">
+                                    <span class="badge @request.LeaveType.ToLower()">@request.LeaveType</span>
+                                </div>
+                                <div class="request-dates">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/>
+                                    </svg>
+                                    @request.StartDate.ToString("MMM dd, yyyy") - @request.EndDate.ToString("MMM dd, yyyy")
+                                </div>
+                                <div class="request-duration">
+                                    <strong>@request.Duration working day@(request.Duration > 1 ? "s" : "")</strong>
+                                </div>
+                            </div>
+                            <div class="request-status-section">
+                                <span class="badge @request.Status.ToLower()">@request.Status</span>
+                                <div class="request-date-small">Submitted @request.SubmittedDate.ToString("MMM dd, yyyy")</div>
+                            </div>
+                        </div>
+                        <div class="request-body">
+                            <div class="request-reason">
+                                <strong>Reason:</strong>
+                                @request.Reason
+                            </div>
+                        </div>
+                        <div class="request-footer">
+                            <div class="request-meta">
+                                @if (request.Status == "Pending")
+                                {
+                                    <text>Awaiting approval from @request.ApproverName</text>
+                                }
+                                else if (request.Status == "Approved")
+                                {
+                                    <text>Approved by @request.ApproverName on @request.ApprovedDate?.ToString("MMM dd, yyyy")</text>
+                                }
+                                else if (request.Status == "Rejected")
+                                {
+                                    <text>Rejected by @request.ApproverName on @request.RejectedDate?.ToString("MMM dd, yyyy")</text>
+                                }
+                            </div>
+                            <div class="request-actions">
+                                <button class="btn btn-view" onclick="viewRequest(@request.Id)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                    </svg>
+                                    View Details
+                                </button>
+                                @if (request.Status == "Pending")
+                                {
+                                    <form method="post" asp-page-handler="Cancel" asp-route-id="@request.Id" style="display: inline;">
+                                        <button type="submit" class="btn btn-cancel">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                            </svg>
+                                            Cancel
+                                        </button>
+                                    </form>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </main>
+    </div>
+</div>

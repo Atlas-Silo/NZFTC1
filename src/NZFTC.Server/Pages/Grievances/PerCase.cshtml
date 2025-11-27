@@ -1,0 +1,200 @@
+@page "{id:int?}"
+@model PerCaseModel
+@{
+    ViewData["PageTitle"] = "Case Details";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/grievances.css" asp-append-version="true" />
+}
+
+<div class="layout">
+    <partial name="_AdminSidebar" />
+    
+    <div class="main-content">
+        <partial name="_Topbar" />
+        
+        <main class="content">
+            <a asp-page="Triage" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                </svg>
+                Back to Triage
+            </a>
+
+            <!-- Case Header -->
+            <div class="case-header">
+                <div class="case-title-row">
+                    <div class="case-title-left">
+                        <h2>@Model.Grievance?.Subject</h2>
+                        @*<div class="case-id">Case ID: @Model.CaseId</div>*@
+                    </div>
+                    <div class="case-badges">
+                        @*<span class="category-badge">@Model.Category</span>*@
+                        @*<span class="badge @Model.Priority.ToLower()">@Model.Priority</span>*@
+                        <span class="badge @Model.Grievance?.Status.ToLower()">@Model.Grievance?.Status</span>
+                    </div>
+                </div>
+
+                <div class="case-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">Submitted</div>
+                        <div class="meta-value">@Model.Grievance?.SubmittedOn.ToString("MMMM dd, yyyy")</div>
+                    </div>
+                    @*<div class="meta-item">
+                        <div class="meta-label">Last Updated</div>
+                        <div class="meta-value">@Model.LastUpdatedDate.ToString("MMMM dd, yyyy")</div>
+                    </div>*@
+                    @*<div class="meta-item">
+                        <div class="meta-label">Assigned To</div>
+                        <div class="meta-value">@(Model.AssignedTo ?? "Unassigned")</div>
+                    </div>*@
+                    @*<div class="meta-item">
+                        <div class="meta-label">Days Open</div>
+                        <div class="meta-value">@Model.DaysOpen Days</div>
+                    </div>*@
+                </div>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div class="two-column">
+                <!-- Left Column -->
+                <div>
+                    <!-- Case Details -->
+                    <div class="details-card">
+                        <h3>Case Details</h3>
+
+                        <div class="details-section">
+                            <div class="section-label">Details</div>
+                            <div class="section-content">@Model.Grievance?.Details</div>
+                        </div>
+
+                        @*@if (!string.IsNullOrEmpty(Model.Incidents))
+                        {
+                            <div class="details-section">
+                                <div class="section-label">Specific Incidents</div>
+                                <div class="section-content">@Html.Raw(Model.Incidents)</div>
+                            </div>
+                        }*@
+
+                        @*@if (!string.IsNullOrEmpty(Model.Witnesses))
+                        {
+                            <div class="details-section">
+                                <div class="section-label">Witnesses</div>
+                                <div class="section-content">@Model.Witnesses</div>
+                            </div>
+                        }*@
+
+                        @*@if (!string.IsNullOrEmpty(Model.DesiredOutcome))
+                        {
+                            <div class="details-section">
+                                <div class="section-label">Desired Outcome</div>
+                                <div class="section-content">@Model.DesiredOutcome</div>
+                            </div>
+                        }*@
+                    </div>
+
+                    @* Activity Timeline - Not in DTO *@
+                    @*<div class="details-card">
+                        <h3>Activity Timeline</h3>
+
+                        <div class="timeline">
+                            @foreach (var activity in Model.Activities)
+                            {
+                                <div class="timeline-item">
+                                    <div class="timeline-dot @activity.Status.ToLower()"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-header">
+                                            <div class="timeline-title">@activity.Title</div>
+                                            <div class="timeline-date">@activity.Date.ToString("MMM dd, yyyy - h:mm tt")</div>
+                                        </div>
+                                        <div class="timeline-text">@activity.Description</div>
+                                        <div class="timeline-author">— @activity.Author</div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                        <form method="post" class="comment-form">
+                            <div class="form-group">
+                                <label asp-for="NewComment">Add Update / Comment</label>
+                                <textarea asp-for="NewComment" placeholder="Enter your comment or update..."></textarea>
+                                <span asp-validation-for="NewComment" class="text-danger"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Post Update</button>
+                        </form>
+                    </div>*@
+                </div>
+
+                <!-- Right Column -->
+                <div>
+                    <!-- Employee Info -->
+                    <div class="employee-card">
+                        <h3>Employee Information</h3>
+                        @*<div class="employee-info">
+                            <div class="employee-avatar-large">@Model.Employee.Initials</div>
+                            <div class="employee-details">
+                                <div class="employee-name">@Model.Employee.Name</div>
+                                <div class="employee-id">@Model.Employee.EmployeeId</div>
+                                <div class="employee-contact">@Model.Employee.Email</div>
+                            </div>
+                        </div>*@
+
+                        @*<div class="info-list">
+                            <div class="info-list-item">
+                                <span class="info-list-label">Position</span>
+                                <span class="info-list-value">@Model.Employee.Position</span>
+                            </div>
+                            <div class="info-list-item">
+                                <span class="info-list-label">Department</span>
+                                <span class="info-list-value">@Model.Employee.Department</span>
+                            </div>
+                            <div class="info-list-item">
+                                <span class="info-list-label">Manager</span>
+                                <span class="info-list-value">@Model.Employee.Manager</span>
+                            </div>
+                            <div class="info-list-item">
+                                <span class="info-list-label">Phone</span>
+                                <span class="info-list-value">@Model.Employee.Phone</span>
+                            </div>
+                        </div>*@
+                    </div>
+
+                    @* Actions - Not implemented *@
+                    @*<div class="action-card">
+                        <h3>Case Actions</h3>
+                        <div class="action-buttons">
+                            <button class="btn btn-warning">Assign to Investigator</button>
+                            <button class="btn btn-primary">Update Status</button>
+                            <button class="btn btn-success">Mark as Resolved</button>
+                            <button class="btn btn-danger">Escalate Case</button>
+                        </div>
+                    </div>*@
+
+                    @* Additional Info - Not in DTO *@
+                    @*<div class="action-card">
+                        <h3>Case Statistics</h3>
+                        <div class="info-list">
+                            <div class="info-list-item">
+                                <span class="info-list-label">Total Updates</span>
+                                <span class="info-list-value">@Model.TotalUpdates</span>
+                            </div>
+                            <div class="info-list-item">
+                                <span class="info-list-label">Response Time</span>
+                                <span class="info-list-value">@(Model.ResponseTime ?? "Pending")</span>
+                            </div>
+                            <div class="info-list-item">
+                                <span class="info-list-label">SLA Status</span>
+                                <span class="info-list-value @(Model.SLAStatus == "On Track" ? "success" : "")">@Model.SLAStatus</span>
+                            </div>
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

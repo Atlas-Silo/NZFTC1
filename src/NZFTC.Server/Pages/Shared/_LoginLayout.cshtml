@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NZFTC Account</title>
+
+    <!-- Core styles -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <!-- Page-specific styles -->
+    @RenderSection("Styles", required: false)
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <header class="login-header">
+            <h1>NZFTC</h1>
+            <p>@ViewData["PageTitle"]</p>
+        </header>
+
+        <main role="main" class="login-main">
+            @RenderBody()
+        </main>
+
+        <footer class="login-footer text-muted">
+            <div class="container text-center">
+                &copy; @DateTime.Now.Year - NZFTC
+            </div>
+        </footer>
+    </div>
+
+    <!-- Core scripts -->
+    <script src="~/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Page-specific scripts -->
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

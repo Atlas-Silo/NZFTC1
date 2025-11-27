@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NZFTC.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38c0e0ae10cb4085878499303671cf7d02098b4e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f48754b231a56daa6e30f3d5c2e124ba0e568582")]
 [assembly: System.Reflection.AssemblyProductAttribute("NZFTC.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NZFTC.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

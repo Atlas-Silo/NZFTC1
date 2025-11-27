@@ -1,0 +1,140 @@
+@page
+@model NZFTC.Pages.Admin.RolesModel
+@{
+    ViewData["PageTitle"] = "User Roles";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+}
+
+<div class="layout">
+    <partial name="_AdminSidebar" />
+    
+    <div class="main-content">
+        <partial name="_Topbar" />
+        
+        <main class="content">
+            <div class="page-header">
+                <h2>User Roles</h2>
+                <p>Manage employee access levels and permissions</p>
+            </div>
+
+            <div class="two-column">
+                <!-- Left Column: Assign Roles -->
+                <div class="selector-card">
+                    <h3>Assign Roles</h3>
+
+                    @if (Model.IsSuccess)
+                    {
+                        <div class="success-message">
+                            Role updated successfully!
+                        </div>
+                    }
+
+                    <form method="post">
+                        <div class="form-group">
+                            <label asp-for="SelectedEmployeeId">Select Employee</label>
+                            <select asp-for="SelectedEmployeeId" 
+                                    asp-items="@(Model.AllEmployees.Select(e => new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem
+                                    {
+                                        Value = e.EmployeeId.ToString(),
+                                        Text = e.Name
+                                    }))">
+                                <option value="">-- Select Employee --</option>
+                            </select>
+                            <span asp-validation-for="SelectedEmployeeId" class="text-danger"></span>
+                        </div>
+
+                        @if (Model.SelectedEmployee != null)
+                        {
+                            <!-- Employee Info Display -->
+                            <div class="employee-info-display">
+                                <h4>Employee Information</h4>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <span class="info-label">Name</span>
+                                        <span class="info-value">@Model.SelectedEmployee.Name</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Employee ID</span>
+                                        <span class="info-value">@Model.SelectedEmployee.EmployeeId</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Position</span>
+                                        <span class="info-value">@Model.SelectedEmployee.Position</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Department</span>
+                                        <span class="info-value">@Model.SelectedEmployee.Department</span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        <!-- Roles Section -->
+                        <div class="roles-section">
+                            <h4>Assign Role</h4>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="radio" asp-for="Role" value="admin" id="roleAdmin">
+                                    <div class="checkbox-content">
+                                        <div class="checkbox-label">Administrator</div>
+                                        <div class="checkbox-description">Full system access including user management, payroll, leave approvals, and system settings</div>
+                                    </div>
+                                </label>
+
+                                <label class="checkbox-item">
+                                    <input type="radio" asp-for="Role" value="employee" id="roleEmployee">
+                                    <div class="checkbox-content">
+                                        <div class="checkbox-label">Employee</div>
+                                        <div class="checkbox-description">Standard access: view profile, apply for leave, view pay slips, submit grievances</div>
+                                    </div>
+                                </label>
+                            </div>
+                            <span asp-validation-for="Role" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Update Roles</button>
+                    </form>
+                </div>
+
+                <!-- Right Column: Current Role Assignments -->
+                <div class="roles-list-card">
+                    <h3>Current Role Assignments</h3>
+
+                    <table class="roles-table">
+                        <thead>
+                            <tr>
+                                <th>Employee</th>
+                                <th>Assigned Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var employee in Model.AllEmployees)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="user-avatar-small">@employee.Initials</div>
+                                            <span>@employee.Name</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge @(employee.Role == "Administrator" ? "admin" : "employee")">
+                                            @employee.Role
+                                        </span>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

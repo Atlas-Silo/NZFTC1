@@ -1,0 +1,42 @@
+﻿ @page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+    ViewData["BodyClass"] = "login-page";
+}
+
+<main class="card login-card" role="main">
+    <h1>Login</h1>
+
+    @if (Model.ErrorMessage is not null)
+    {
+        <p class="error-message">@Model.ErrorMessage</p>
+    }
+
+    <form class="form" method="post">
+        <div class="form-group">
+            <label asp-for="Input.Email">Email</label>
+            <input asp-for="Input.Email" data-test="login-email" />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Input.Password">Password</label>
+            <input asp-for="Input.Password" type="password" data-test="login-password" />
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-group form-group-inline">
+            <input asp-for="Input.RememberMe" data-test="login-remember" />
+            <label asp-for="Input.RememberMe">Remember me</label>
+        </div>
+
+        <button type="submit" class="btn primary" data-test="login-submit">Sign In</button>
+        <p class="form-note"><a href="#" aria-disabled="true">Forgot password?</a></p>
+    </form>
+</main>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+@* *@

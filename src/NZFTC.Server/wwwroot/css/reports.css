@@ -1,0 +1,65 @@
+/* ===============================================
+   REPORTS MODULE STYLES
+   Extracted from Audit.html, HR.html, Reports.cshtml
+   Module-specific styles only - globals in site.css/admin.css
+   =============================================== */
+
+/* Status Indicators - Reports */
+.status {
+    font-weight: 600;
+}
+
+.status.pending {
+    color: #e67e22;
+}
+
+.status.approved {
+    color: #27ae60;
+}
+
+.status.rejected {
+    color: #c0392b;
+}
+
+.status.closed {
+    color: #27ae60;
+}
+
+.status.open {
+    color: #c0392b;
+}
+
+.status.processing {
+    color: #e67e22;
+}
+
+/* Note Text - Reports */
+.note {
+    font-size: 12px;
+    color: #95a5a6;
+    margin-top: -15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 10px;
+    }
+
+    .container h1 {
+        font-size: 24px;
+    }
+
+    .container h2 {
+        font-size: 20px;
+    }
+
+    .container table {
+        font-size: 12px;
+    }
+
+    .container table th,
+    .container table td {
+        padding: 10px 8px;
+    }
+}

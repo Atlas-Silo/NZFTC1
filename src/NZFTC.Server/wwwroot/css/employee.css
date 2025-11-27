@@ -1,0 +1,236 @@
+/* Employee Module Specific Styles */
+
+/* Delete Page */
+.delete-card {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.warning-icon {
+    width: 80px;
+    height: 80px;
+    background: #e74c3c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.warning-icon svg {
+    width: 48px;
+    height: 48px;
+    fill: white;
+}
+
+.delete-card h2 {
+    font-size: 28px;
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+.delete-card p {
+    color: #7f8c8d;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.employee-details {
+    background: #f8f9fa;
+    padding: 24px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.employee-details h3 {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detail-label {
+    font-size: 12px;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.detail-value {
+    font-size: 14px;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.warning-box {
+    background: #fff3cd;
+    border-left: 4px solid #f39c12;
+    padding: 16px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.warning-box strong {
+    display: block;
+    color: #856404;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.warning-box ul {
+    margin-left: 20px;
+    color: #856404;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.confirm-check {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.confirm-check:hover {
+    background: #ecf0f1;
+}
+
+.confirm-check input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.confirm-check label {
+    font-size: 14px;
+    color: #2c3e50;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .delete-card {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Index Page - Employee List/Directory */
+.employee-name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.employee-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.employee-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.employee-info .name {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.employee-info .id {
+    font-size: 12px;
+    color: #95a5a6;
+}
+
+/* SelfEdit Page - Avatar & Upload */
+.avatar-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.avatar-large {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.avatar-info h3 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.avatar-info p {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.btn-upload {
+    padding: 8px 16px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn-upload:hover { background: #2980b9; }
+
+@media (max-width: 768px) {
+    .avatar-section { flex-direction: column; text-align: center; }
+}

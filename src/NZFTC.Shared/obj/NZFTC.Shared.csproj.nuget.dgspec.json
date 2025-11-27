@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "g:\\Repos\\NZFTC\\src\\NZFTC.Shared\\NZFTC.Shared.csproj": {}
+    "Y:\\NZFTC - Copy\\src\\NZFTC.Shared\\NZFTC.Shared.csproj": {}
   },
   "projects": {
-    "g:\\Repos\\NZFTC\\src\\NZFTC.Shared\\NZFTC.Shared.csproj": {
+    "Y:\\NZFTC - Copy\\src\\NZFTC.Shared\\NZFTC.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "g:\\Repos\\NZFTC\\src\\NZFTC.Shared\\NZFTC.Shared.csproj",
+        "projectUniqueName": "Y:\\NZFTC - Copy\\src\\NZFTC.Shared\\NZFTC.Shared.csproj",
         "projectName": "NZFTC.Shared",
-        "projectPath": "g:\\Repos\\NZFTC\\src\\NZFTC.Shared\\NZFTC.Shared.csproj",
-        "packagesPath": "C:\\Users\\Ashra\\.nuget\\packages\\",
-        "outputPath": "g:\\Repos\\NZFTC\\src\\NZFTC.Shared\\obj\\",
+        "projectPath": "Y:\\NZFTC - Copy\\src\\NZFTC.Shared\\NZFTC.Shared.csproj",
+        "packagesPath": "C:\\Users\\v\\.nuget\\packages\\",
+        "outputPath": "Y:\\NZFTC - Copy\\src\\NZFTC.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Ashra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\v\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

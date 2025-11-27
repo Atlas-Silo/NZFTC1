@@ -1,0 +1,174 @@
+@page
+@model CreateEmployeeModel
+@{
+    ViewData["Title"] = "Add Employee";
+    ViewData["PageTitle"] = "Add New Employee";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/employee.css" asp-append-version="true" />
+}
+@*side bar nav menu for WebAPP*@
+<div class="layout">
+    <partial name="_AdminSidebar" />
+
+    <div class="main-content">
+        <partial name="_Topbar" />
+
+        <main class="content">
+            <div class="page-header">
+                <h2>Add New Employee</h2>
+                <p>Enter employee information to create a new account</p>
+            </div>
+
+            <div class="success-message" id="successMessage" style="display: none;">
+                Employee created successfully!
+            </div>
+            @* Employee Creation *@
+            <div class="form-card">
+                <form method="post">
+                    
+                    @* Forms for employee input *@
+                    <div class="form-section">
+                        <h3 class="form-section-title">Personal Information</h3>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label asp-for="Employee.FirstName">First Name <span class="required">*</span></label>
+                                <input asp-for="Employee.FirstName" class="form-control" />
+                                <span asp-validation-for="Employee.FirstName" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Employee.LastName">Last Name <span class="required">*</span></label>
+                                <input asp-for="Employee.LastName" class="form-control" />
+                                <span asp-validation-for="Employee.LastName" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Employee.Email">Email <span class="required">*</span></label>
+                                <input asp-for="Employee.Email" class="form-control" type="email" />
+                                <span asp-validation-for="Employee.Email" class="text-danger"></span>
+                            </div>
+                            @*
+                            <div class="form-group">
+                                <label asp-for="Employee.Phone">Phone</label>
+                                <input asp-for="Employee.Phone" class="form-control" placeholder="+64 21 123 4567" />
+                            </div>*@
+                        </div>
+                    </div>
+
+                    @* Employment Details *@
+                    
+                    <div class="form-section">
+                        <h3 class="form-section-title">Employment Details</h3>
+                        <div class="form-grid">
+                        
+                        @* Role TODO:"Change all instances of position to match Employee CRUD"*@
+                            <div class="form-group">
+                                <label asp-for="Employee.Role">Position</label>
+                                <input asp-for="Employee.Role" class="form-control" placeholder="e.g. Software Engineer" />
+                            </div>
+
+                            @*
+                            <div class="form-group">
+                                <label asp-for="Employee.Department">Department</label>
+                                <input asp-for="Employee.Department" class="form-control" placeholder="e.g. IT" />
+                            </div> *@
+
+                            @* Date Hired -  "DateHired" *@
+                            <div class="form-group">
+                                <label asp-for="Employee.DateHired">Start Date</label>
+                                <input asp-for="Employee.DateHired" class="form-control" type="date" />
+                            </div>
+
+                            @* 
+                            <div class="form-group">
+                                <label asp-for="Employee.EmploymentType">Employment Type</label>
+                                <select asp-for="Employee.EmploymentType" class="form-control">
+                                    <option value="">-- Select --</option>
+                                    <option value="FullTime">Full-time</option>
+                                    <option value="PartTime">Part-time</option>
+                                    <option value="Contract">Contract</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Employee.Status">Status</label>
+                                <select asp-for="Employee.Status" class="form-control">
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                </select>
+                            </div>
+                            *@
+                        </div>
+                    </div>
+
+                    @* Payroll Information -"Salary" *@
+                    <div class="form-section">
+                        <h3 class="form-section-title">Payroll Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label asp-for="Employee.Salary">Salary</label>
+                                <input asp-for="Employee.Salary" class="form-control" type="number" step="0.01" min="0" placeholder="0.00" />
+                            </div>
+
+                            @* 
+                            <div class="form-group">
+                                <label asp-for="Employee.PayType">Pay Type</label>
+                                <select asp-for="Employee.PayType" class="form-control">
+                                    <option value="Salary">Salary</option>
+                                    <option value="Hourly">Hourly</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Employee.OpeningLeaveBalance">Opening Leave Balance (days)</label>
+                                <input asp-for="Employee.OpeningLeaveBalance" class="form-control" type="number" step="0.5" min="0" placeholder="0.0" />
+                            </div>
+                            *@
+                        </div>
+                    </div>
+
+                    @* 
+                    <div class="form-section">
+                        <h3 class="form-section-title">Address</h3>
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label asp-for="Employee.Address">Street Address</label>
+                                <input asp-for="Employee.Address" class="form-control" placeholder="123 Main Street" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Employee.City">City</label>
+                                <input asp-for="Employee.City" class="form-control" placeholder="Wellington" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Employee.Postcode">Postcode</label>
+                                <input asp-for="Employee.Postcode" class="form-control" placeholder="6011" />
+                            </div> 
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">Emergency Contact</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label asp-for="Employee.EmergencyContactName">Contact Name</label>
+                                <input asp-for="Employee.EmergencyContactName" class="form-control" placeholder="Full Name" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Employee.EmergencyContactPhone">Contact Phone</label>
+                                <input asp-for="Employee.EmergencyContactPhone" class="form-control" placeholder="+64 21 123 4567" />
+                            </div>
+                        </div>
+                    </div>
+                    *@
+
+                    @* Form Action buttons *@
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Create Employee</button>
+                        <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>

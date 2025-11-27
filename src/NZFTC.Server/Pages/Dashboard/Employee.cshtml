@@ -1,0 +1,168 @@
+﻿@page
+@model UserDashModel
+@{
+    ViewData["Title"] = "Employee Dashboard";
+    ViewData["PageTitle"] = "My Dashboard";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/employee.css" asp-append-version="true" />
+}
+
+<div class="layout">
+    <partial name="_EmployeeSidebar" />
+    
+    <div class="main-content">
+        <partial name="_Topbar" />
+        
+        <main class="content">
+            <div class="page-header">
+                <h2>Hi, @Model.Profile.FullName</h2>
+                <p>Here's your information and upcoming events</p>
+            </div>
+
+            @*Main dashboard for employees, displays info, contact details, and role*@ 
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">@(string.Join("", Model.Profile.FullName.Split(' ').Take(2).Select(n => n.FirstOrDefault())))</div>
+                    <div class="profile-info">
+                        <h3 data-test="me-name">@Model.Profile.FullName</h3>
+                        <div class="role" data-test="me-position">@Model.Profile.Position</div>
+                        <div class="employee-id">Employee ID: @Model.Profile.Id</div>
+                    </div>
+                </div>
+
+                <div class="profile-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Email</span>
+                        <span class="detail-value" data-test="me-email">@Model.Profile.Email</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Phone</span>
+                        <span class="detail-value" data-test="me-phone">@Model.Contact.Phone</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Department</span>
+                        <span class="detail-value" data-test="me-department">@Model.Profile.Department</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Start Date</span>
+                        <span class="detail-value" data-test="me-startDate">@Model.Profile.StartDate?.ToString("dd MMMM yyyy")</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Role</span>
+                        <span class="detail-value" data-test="me-role">@Model.Profile.Role</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Location</span>
+                        <span class="detail-value">@Model.Contact.City</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Annual Leave</span>
+                        <div class="stat-icon blue">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-value" data-test="me-annual">@(Model.Leave.Annual?.ToString("0.0") ?? "0.0") days</div>
+                    <div class="stat-detail">Available balance</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Sick Leave</span>
+                        <div class="stat-icon green">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1.06 13.54L7.4 12l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41-5.64 5.66z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-value" data-test="me-sick">@(Model.Leave.Sick?.ToString("0.0") ?? "0.0") days</div>
+                    <div class="stat-detail">Remaining this year</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Pending Requests</span>
+                        <div class="stat-icon orange">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-value">--</div>
+                    <div class="stat-detail">Awaiting approval</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Time with Company</span>
+                        <div class="stat-icon purple">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-value">@((Model.Profile.StartDate.HasValue ? (DateTime.Now - Model.Profile.StartDate.Value).TotalDays / 365.25 : 0).ToString("0.0")) years</div>
+                    <div class="stat-detail">Since @Model.Profile.StartDate?.ToString("MMMM yyyy")</div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="action-grid">
+                    <a asp-page="/Leave/Apply" class="action-btn">Request Leave</a>
+                    <a asp-page="/Payroll/PaySlips" class="action-btn">View Pay Slips</a>
+                    <a asp-page="/Employees/SelfEdit" class="action-btn">Update Profile</a>
+                    <a asp-page="/Grievances/Submit" class="action-btn">Submit Grievance</a>
+                </div>
+            </div>
+
+            <!-- Contact Update Form -->
+            @if (TempData["Flash"] is string flash && !string.IsNullOrWhiteSpace(flash))
+            {
+                <div class="alert alert-success">@flash</div>
+            }
+
+            <div class="card section">
+                <h3>Update Contact Information</h3>
+                <form class="form" method="post">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label asp-for="Contact.Phone">Phone</label>
+                            <input asp-for="Contact.Phone" data-test="me-phone-input" />
+                            <span asp-validation-for="Contact.Phone" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Contact.Address1">Address</label>
+                            <input asp-for="Contact.Address1" data-test="me-address1" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Contact.City">City</label>
+                            <input asp-for="Contact.City" data-test="me-city" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Contact.Postcode">Postcode</label>
+                            <input asp-for="Contact.Postcode" data-test="me-postcode" />
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary" data-test="me-contact-save">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

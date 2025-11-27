@@ -3,15 +3,14 @@ using Microsoft.EntityFrameworkCore.Design;
 
 namespace NZFTC.Data
 {
-    public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+    public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     {
-        public ApplicationDbContext CreateDbContext(string[] args)
+        public AppDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-            // Local dev Sqlite DB; change connection string if you prefer a different provider
-            optionsBuilder.UseSqlite("Data Source=dev.db");
-
-            return new ApplicationDbContext(optionsBuilder.Options);
+            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+            optionsBuilder.UseSqlite("Data Source=Data/app.db");
+            return new AppDbContext(optionsBuilder.Options);
         }
     }
 }
+

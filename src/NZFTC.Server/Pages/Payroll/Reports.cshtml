@@ -1,0 +1,101 @@
+@page
+@model PayrollReportsModel
+@{
+    ViewData["Title"] = "Payroll Reports";
+    ViewData["PageTitle"] = "Payroll Reports";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/payroll.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/reports.css" asp-append-version="true" />
+}
+
+<div class="layout">
+    <partial name="_AdminSidebar" />
+
+    <div class="main-content">
+        <partial name="_Topbar" />
+
+        <main class="content">
+            <div class="container">
+                <h1>Payroll Summary Reports</h1>
+                <div class="actions">
+                    <button class="btn-export" type="button" onclick="alert('CSV Export: backend endpoint will be implemented.')">Export CSV</button>
+                </div>
+
+                <h2>Recent Pay Cycles</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Cycle</th>
+                        <th>Period</th>
+                        <th>Employees</th>
+                        <th>Net Payroll</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2025-21</td>
+                        <td>01 Nov - 15 Nov 2025</td>
+                        <td>156</td>
+                        <td>$662,308.00</td>
+                        <td class="status closed">Closed</td>
+                    </tr>
+                    <tr>
+                        <td>2025-20</td>
+                        <td>16 Oct - 31 Oct 2025</td>
+                        <td>154</td>
+                        <td>$651,420.00</td>
+                        <td class="status closed">Closed</td>
+                    </tr>
+                    <tr>
+                        <td>2025-22</td>
+                        <td>16 Nov - 30 Nov 2025</td>
+                        <td>157</td>
+                        <td>$ Pending</td>
+                        <td class="status processing">Processing</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h2>Recent Adjustments</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Employee</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>14 Nov 2025</td>
+                        <td>Jane Doe</td>
+                        <td>Leave Without Pay</td>
+                        <td>-$480.00</td>
+                        <td class="status closed">Applied</td>
+                    </tr>
+                    <tr>
+                        <td>13 Nov 2025</td>
+                        <td>Michael Brown</td>
+                        <td>Overtime</td>
+                        <td>$120.00</td>
+                        <td class="status closed">Applied</td>
+                    </tr>
+                    <tr>
+                        <td>12 Nov 2025</td>
+                        <td>Emma Wilson</td>
+                        <td>Sick Leave Deduction</td>
+                        <td>-$240.00</td>
+                        <td class="status closed">Applied</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p class="note">Placeholder data for layout only. Razor PageModel + EF Core binding will replace these rows.</p>
+            </div>
+        </main>
+    </div>
+</div>

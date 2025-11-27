@@ -1,0 +1,51 @@
+@page
+@model AuditReportModel
+@{
+    ViewData["PageTitle"] = "Audit Logs";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/reports.css" asp-append-version="true" />
+}
+
+<div class="layout">
+    <partial name="_AdminSidebar" />
+    
+    <div class="main-content">
+        <partial name="_Topbar" />
+        
+        <main class="content">
+            <div class="container">
+                <h1>Audit Logs</h1>
+                <p class="desc">Compliance log: minimal record of system activities (who, action, when, description). Advanced filters, stats, charts, and drill-down modals have been removed per scope.</p>
+                <div class="actions">
+                    <form method="post" asp-page-handler="Export">
+                        <button class="btn-export" type="submit">Export CSV</button>
+                    </form>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date & Time</th>
+                            <th>User</th>
+                            <th>Action</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var log in Model.AuditLogs)
+                        {
+                            <tr>
+                                <td>@log.Timestamp.ToString("dd MMM yyyy, HH:mm")</td>
+                                <td>@log.UserName</td>
+                                <td>@log.Action</td>
+                                <td>@log.Description</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>

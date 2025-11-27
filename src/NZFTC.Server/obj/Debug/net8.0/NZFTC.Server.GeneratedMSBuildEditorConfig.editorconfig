@@ -9,39 +9,163 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = NZFTC.Server
 build_property.RootNamespace = NZFTC.Server
-build_property.ProjectDir = g:\Repos\NZFTC\src\NZFTC.Server\
+build_property.ProjectDir = Y:\NZFTC - Copy\src\NZFTC.Server\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = g:\Repos\NZFTC\src\NZFTC.Server
+build_property.MSBuildProjectDirectory = Y:\NZFTC - Copy\src\NZFTC.Server
 build_property._RazorSourceGeneratorDebug = 
 
-[g:/Repos/NZFTC/src/NZFTC.Server/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[g:/Repos/NZFTC/src/NZFTC.Server/Pages/Index.cshtml]
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Account/invalidUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxpbnZhbGlkVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Account/login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxsb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Admin/Roles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm9sZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Dashboard/Admin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkXEFkbWluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Dashboard/Employee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkXEVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Employees/create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVzXGNyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Employees/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Employees/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Employees/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Employees/SelfEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVzXFNlbGZFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Grievances/MyCases.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3JpZXZhbmNlc1xNeUNhc2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Grievances/PerCase.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3JpZXZhbmNlc1xQZXJDYXNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Grievances/Submit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3JpZXZhbmNlc1xTdWJtaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Grievances/Triage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3JpZXZhbmNlc1xUcmlhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Holidays/details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9saWRheXNcZGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Holidays/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9saWRheXNcaW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[g:/Repos/NZFTC/src/NZFTC.Server/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Leave/apply.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGVhdmVcYXBwbHkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[g:/Repos/NZFTC/src/NZFTC.Server/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Leave/Approvals.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGVhdmVcQXBwcm92YWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Leave/Policies.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGVhdmVcUG9saWNpZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Leave/Requests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGVhdmVcUmVxdWVzdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Payroll/PaySlips.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF5cm9sbFxQYXlTbGlwcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Payroll/Reports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF5cm9sbFxSZXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Payroll/RunCycle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF5cm9sbFxSdW5DeWNsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Payroll/Setup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF5cm9sbFxTZXR1cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Reports/Audit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0c1xBdWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Reports/HR.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0c1xIUi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Shared/_AdminSidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9BZG1pblNpZGViYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Shared/_EmployeeSidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9FbXBsb3llZVNpZGViYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Shared/_LoginLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Shared/_Topbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Ub3BiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[g:/Repos/NZFTC/src/NZFTC.Server/Pages/_ViewImports.cshtml]
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[g:/Repos/NZFTC/src/NZFTC.Server/Pages/_ViewStart.cshtml]
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[g:/Repos/NZFTC/src/NZFTC.Server/Pages/Shared/_Layout.cshtml]
+[Y:/NZFTC - Copy/src/NZFTC.Server/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-nhq6otfaa4

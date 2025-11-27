@@ -1,10 +1,107 @@
-﻿@page
-@model IndexModel
+@page
+@model NZFTC.Pages.IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home - NZFTC";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="home-container">
+    <div class="hero-section">
+        <h1>Welcome to NZFTC HR System</h1>
+        <p>New Zealand Fair Trade Commission Employee Management Portal</p>
+    </div>
+
+    <div class="quick-links">
+        <div class="link-card">
+            <h3>Employees</h3>
+            <p>Manage employee records and information</p>
+            <a href="/Employees/Index" class="btn btn-primary">View Employees</a>
+        </div>
+
+        <div class="link-card">
+            <h3>Holidays</h3>
+            <p>View and manage public holidays</p>
+            <a href="/Holidays/Index" class="btn btn-primary">View Holidays</a>
+        </div>
+
+        <div class="link-card">
+            <h3>Grievances</h3>
+            <p>Submit and manage grievance cases</p>
+            <a href="/Grievances/MyCases" class="btn btn-primary">My Cases</a>
+        </div>
+    </div>
 </div>
+
+<style>
+    .home-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    .hero-section {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+        margin-bottom: 40px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+
+    .hero-section p {
+        font-size: 1.2em;
+        opacity: 0.9;
+    }
+
+    .quick-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .link-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: transform 0.2s;
+    }
+
+    .link-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    .link-card h3 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .link-card p {
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.2s;
+    }
+
+    .btn-primary {
+        background-color: #667eea;
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background-color: #5568d3;
+    }
+</style>

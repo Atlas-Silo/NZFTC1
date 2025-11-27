@@ -1,0 +1,221 @@
+@page "{id:int?}"
+@model HolidayDetailsModel
+@{
+    ViewData["PageTitle"] = Model.Id.HasValue ? "Edit Holiday" : "Add Holiday";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/holidays.css" asp-append-version="true" />
+}
+
+<div class="layout">
+    <partial name="_AdminSidebar" />
+    
+    <div class="main-content">
+        <partial name="_Topbar" />
+        
+        <main class="content">
+            <a asp-page="Index" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                </svg>
+                @*Back to Calendar*@
+            </a>
+
+            <div class="page-header">
+                <h2>@(Model.Id.HasValue ? "Edit Holiday" : "Add Holiday")</h2>
+                <p>@(Model.Id.HasValue ? "Edit existing holiday details" : "Add a new holiday to the calendar")</p>
+            </div>
+
+            @* Success prompt *@
+            @if (Model.IsSuccess)
+            {
+                <div class="success-message">
+                    <p><strong>Success!</strong> Holiday has been updated successfully.</p>
+                </div>
+            }
+
+            @* Two Column Layout *@
+            <div class="two-column">
+                @* Form Column *@
+                <div class="form-card">
+                    <h3>Holiday Information</h3>
+
+            <form method="post">
+            @* Hide ID for Edit and delete *@
+            @if (Model.Holiday.Id != 0)
+            {
+                <input type="hidden" asp-for="Holiday.Id" />
+            }
+    
+    <div class="form-group">
+        <label asp-for="HolidayName">
+                                Holiday Name
+                                <span class="required">*</span>
+                            </label>
+                            <input asp-for="HolidayName" type="text" required>
+                            <span asp-validation-for="HolidayName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="HolidayDate">
+                                Date
+                                <span class="required">*</span>
+                            </label>
+                            <input asp-for="HolidayDate" type="date" required>
+
+                            <span asp-validation-for="HolidayDate" class="text-danger"></span>
+                            <div class="help-text">The date when this holiday is observed</div>
+                        </div>
+
+                        @* HolidayType *@
+                        @*<div class="form-group">
+                            <label asp-for="HolidayType">
+                                Holiday Type
+                                <span class="required">*</span>
+                            </label>
+                            <select asp-for="HolidayType" required>
+                                <option value="">Select holiday type</option>
+                                <option value="public">Public Holiday</option>
+                                <option value="regional">Regional Holiday</option>
+                                <option value="company">Company Observance</option>
+                            </select>
+                            <span asp-validation-for="HolidayType" class="text-danger"></span>
+                            <div class="help-text">Determines how this holiday appears on employee calendars</div>
+                        </div>*@
+
+                        @* Region  *@
+                        <div class="form-group">
+                            <label asp-for="Region">Region (Optional)</label>
+                            <input asp-for="Region" type="text" placeholder="e.g. Auckland, Wellington">
+                            <span asp-validation-for="Region" class="text-danger"></span>
+                        </div>
+
+                        @* Description  *@
+                        @*<div class="form-group">
+                            <label asp-for="Description">Description</label>
+                            <textarea asp-for="Description" placeholder="Add a description about this holiday..."></textarea>
+                        </div>*@
+
+                        @* Notes *@
+                        @*<div class="form-group">
+                            <label asp-for="Notes">Internal Notes</label>
+                            <textarea asp-for="Notes" placeholder="Add any internal notes for HR or management..."></textarea>
+                            <div class="help-text">These notes are only visible to the admin</div>
+                        </div>*@
+
+                        @* IsPaid *@
+                        @*<div class="checkbox-group">
+                            <input asp-for="IsPaid" type="checkbox">
+                            <label asp-for="IsPaid">This is a paid holiday</label>
+                        </div>*@
+
+                        @* IsActive *@
+                        @*<div class="checkbox-group">
+                            <input asp-for="IsActive" type="checkbox">
+                            <label asp-for="IsActive">Holiday is active and visible to employees</label>
+                        </div>*@
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/>
+                                </svg>
+                                Save Holiday
+                            </button>
+                            <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
+
+                    @* Delete*@
+                    @if (Model.Id.HasValue)
+                    {
+                        <div class="delete-confirmation">
+                            <h3>Delete Holiday</h3>
+                            <p>Permanently remove this holiday from the calendar.</p>
+                            @*soft delete? *@
+                            <form method="post" asp-page-handler="Delete">
+                                <button type="submit" class="btn btn-danger">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                                    </svg>
+                                    Delete Holiday
+                                </button>
+                            </form>
+                        </div>
+                    }
+                </div>
+
+                @* Info Panel *@
+                <div>
+                    @if (Model.Id.HasValue)
+                    {
+                        <div class="info-panel">
+                            <h3>Holiday Details</h3>
+
+                            @* HolidayType  *@
+                            @*<div class="info-item">
+                                <div class="info-label">Status</div>
+                                <div class="info-value">
+                                    <span class="badge @Model.HolidayType">@Model.HolidayType</span>
+                                </div>
+                            </div>*@
+
+                            <div class="info-item">
+                                <div class="info-label">Holiday ID</div>
+                                <div class="info-value">@Model.Id</div>
+                            </div>
+
+                            @* CreatedDate *@
+                            @*<div class="info-item">
+                                <div class="info-label">Date Created</div>
+                                <div class="info-value">@Model.CreatedDate.ToString("MMMM dd, yyyy")</div>
+                            </div>*@
+
+                            @* CreatedBy *@
+                            @*<div class="info-item">
+                                <div class="info-label">Created By</div>
+                                <div class="info-value">@Model.CreatedBy</div>
+                            </div>*@
+
+                            @* ModifiedDate  *@
+                            @*<div class="info-item">
+                                <div class="info-label">Last Modified</div>
+                                <div class="info-value">@Model.ModifiedDate.ToString("MMMM dd, yyyy")</div>
+                            </div>*@
+
+                            @* ModifiedBy  *@
+                            @*<div class="info-item">
+                                <div class="info-label">Modified By</div>
+                                <div class="info-value">@Model.ModifiedBy</div>
+                            </div>*@
+
+                            @* EmployeeCount *@
+                            @*<div class="info-item">
+                                <div class="info-label">Employees Affected</div>
+                                <div class="info-value">@Model.EmployeeCount employees</div>
+                            </div>*@
+
+                            @* DaysUntil *@
+                            @*<div class="info-item">
+                                <div class="info-label">Days Until</div>
+                                <div class="info-value days-until">@Model.DaysUntil days</div>
+                            </div>*@
+                        </div>
+                    }
+
+                    <div class="warning-box">        
+                        <p>•Note: Use internal notes for payroll reminders or special processing instructions</p>
+                      
+                       
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+@*not implemented*@
+@*section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}*@

@@ -1,0 +1,48 @@
+ASCII ER Diagram (simplified)
+
+[Employee] (EmployeeId PK)
+ - EmployeeId (int) PK
+ - FirstName (string)
+ - LastName (string)
+ - Email (string) UNIQUE
+ - Role (string)
+ - DateHired (datetime)
+ - Salary (decimal)
+
+[LeaveRequest] (LeaveRequestId PK)
+ - LeaveRequestId (int) PK
+ - EmployeeId (int) FK -> Employee.EmployeeId
+ - StartDate (date)
+ - EndDate (date)
+ - Type (string)
+ - Status (string)
+ - RequestedOn (datetime)
+
+[Payroll] (PayrollId PK)
+ - PayrollId (int) PK
+ - EmployeeId (int) FK -> Employee.EmployeeId
+ - PayPeriodStart (date)
+ - PayPeriodEnd (date)
+ - GrossPay (decimal)
+ - Tax (decimal)
+ - NetPay (decimal)
+ - GeneratedOn (datetime)
+
+[Grievance] (GrievanceId PK)
+ - GrievanceId (int) PK
+ - EmployeeId (int) FK -> Employee.EmployeeId
+ - SubmittedOn (datetime)
+ - Subject (string)
+ - Details (string)
+ - Status (string)
+
+[Holiday] (HolidayId PK)
+ - HolidayId (int) PK
+ - Date (date)
+ - Name (string)
+
+Relationships:
+ Employee 1 --- * LeaveRequest
+ Employee 1 --- * Payroll
+ Employee 1 --- * Grievance
+ Holiday standalone

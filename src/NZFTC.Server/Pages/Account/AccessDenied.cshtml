@@ -1,0 +1,42 @@
+@page
+@model AccessDeniedModel
+@{
+    ViewData["Title"] = "Access Denied";
+    Layout = "_LoginLayout";
+}
+
+<div class="error-container">
+    <div class="error-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </svg>
+    </div>
+
+    <h1>Access Denied</h1>
+    <p class="subtitle">You don't have permission to access this page or your account is not active.</p>
+
+    <div class="reason-box">
+        <h3>Possible Reasons:</h3>
+        <ul>
+            <li>Your account has not been activated yet</li>
+            <li>Your account access has been revoked</li>
+            <li>You don't have the required permissions</li>
+            <li>Your session has expired</li>
+            <li>PLEASE CONTACT SUPPORT</li>
+        </ul>
+    </div>
+
+    <div class="error-code">
+        Error Code: AUTH_ACCESS_DENIED
+    </div>
+
+    <div class="action-buttons">
+        <a asp-page="Login" class="btn btn-primary">Return to Login</a>
+        <a asp-page="ResetPassword" class="btn btn-secondary">Reset Password</a>
+    </div>
+
+    <div class="help-text">
+        Need help? Contact your HR or email
+        <a href="mailto:support@nzftc.co.nz">support@nzftc.co.nz</a>
+    </div>
+</div>

@@ -1,0 +1,204 @@
+@page
+@model EditEmployeeModel
+@{
+    ViewData["Title"] = "My Profile";
+    ViewData["PageTitle"] = "Update Profile";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/employee.css" asp-append-version="true" />
+}
+
+<div class="layout">
+    <partial name="_EmployeeSidebar" />
+
+    <div class="main-content">
+        <partial name="_Topbar" />
+
+        <main class="content">
+            <div class="page-header">
+                <h2>Update Your Profile</h2>
+                <p>Update your personal information below</p>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Note:</strong> Please contact your HR department for any changes to your employment details.</p>
+            </div>
+
+            <div class="profile-card">
+                <!-- Avatar Section -->
+                <div class="avatar-section">
+                    <div class="avatar-large">@Model.Employee.FirstName?.Substring(0, 1)@Model.Employee.LastName?.Substring(0, 1)</div>
+                    <div class="avatar-info">
+                        <h3>@Model.Employee.FirstName @Model.Employee.LastName</h3>
+                        <p>Employee ID: @Model.Employee.EmployeeId @* | @Model.Employee.Position (NOT IN DTO) *@</p>
+                        <input type="file" id="avatarUpload" accept="image/*" style="display: none;">
+                        <button type="button" class="btn-upload" onclick="document.getElementById('avatarUpload').click()">
+                            Upload Photo
+                        </button>
+                    </div>
+                </div>
+
+                <form method="post">
+                    @* Personal Information *@
+                    <div class="form-section">
+                        <h3>Personal Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label asp-for="Employee.FirstName">First Name <span class="required">*</span></label>
+                                <input asp-for="Employee.FirstName" class="form-control" />
+                                <span asp-validation-for="Employee.FirstName" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Employee.LastName">Last Name <span class="required">*</span></label>
+                                <input asp-for="Employee.LastName" class="form-control" />
+                                <span asp-validation-for="Employee.LastName" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label asp-for="Employee.Email">Email <span class="required">*</span></label>
+                                <input asp-for="Employee.Email" class="form-control" type="email" />
+                                <span asp-validation-for="Employee.Email" class="text-danger"></span>
+                            </div>
+                            
+                            @* NOT IN DTO - Phone and DateOfBirth commented out
+                            <div class="form-group">
+                                <label asp-for="Employee.Phone">Phone Number <span class="required">*</span></label>
+                                <input asp-for="Employee.Phone" class="form-control" />
+                                <span asp-validation-for="Employee.Phone" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Employee.DateOfBirth">Date of Birth</label>
+                                <input asp-for="Employee.DateOfBirth" class="form-control" type="date" />
+                            </div>
+                            *@
+                        </div>
+                    </div>
+
+                    @* Employment Details (Read-Only) - Only showing DTO fields *@
+                    <div class="form-section">
+                        <h3>Employment Details</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Employee ID</label>
+                                <input type="text" value="@Model.Employee.EmployeeId" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Role</label>
+                                <input type="text" value="@Model.Employee.Role" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Date Hired</label>
+                                <input type="text" value="@Model.Employee.DateHired.ToString("dd MMMM yyyy")" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Salary</label>
+                                <input type="text" value="@Model.Employee.Salary.ToString("C")" class="form-control" disabled>
+                            </div>
+                            @* NOT IN DTO - Commented out
+                            <div class="form-group">
+                                <label>Department</label>
+                                <input type="text" value="@Model.Employee.Department" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Employment Type</label>
+                                <input type="text" value="@Model.Employee.EmploymentType" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <input type="text" value="@Model.Employee.Status" class="form-control" disabled>
+                            </div>
+                            *@
+                        </div>
+                    </div>
+
+                    @* NOT IN DTO - Address section commented out
+                    <div class="form-section">
+                        <h3>Address Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label asp-for="Employee.Address">Street Address <span class="required">*</span></label>
+                                <input asp-for="Employee.Address" class="form-control" />
+                                <span asp-validation-for="Employee.Address" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Employee.City">City <span class="required">*</span></label>
+                                <input asp-for="Employee.City" class="form-control" />
+                                <span asp-validation-for="Employee.City" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Employee.Postcode">Postcode <span class="required">*</span></label>
+                                <input asp-for="Employee.Postcode" class="form-control" />
+                                <span asp-validation-for="Employee.Postcode" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    *@
+
+                    @* NOT IN DTO - Emergency Contact section commented out
+                    <div class="form-section">
+                        <h3>Emergency Contact</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label asp-for="Employee.EmergencyContactName">Contact Name <span class="required">*</span></label>
+                                <input asp-for="Employee.EmergencyContactName" class="form-control" />
+                                <span asp-validation-for="Employee.EmergencyContactName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Employee.EmergencyRelationship">Relationship</label>
+                                <input asp-for="Employee.EmergencyRelationship" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Employee.EmergencyContactPhone">Contact Phone <span class="required">*</span></label>
+                                <input asp-for="Employee.EmergencyContactPhone" class="form-control" />
+                                <span asp-validation-for="Employee.EmergencyContactPhone" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    *@
+
+                    @* NOT IN DTO - Bank Details section commented out
+                    <div class="form-section">
+                        <h3>Bank Details</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label asp-for="Employee.BankName">Bank Name</label>
+                                <input asp-for="Employee.BankName" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Employee.AccountNumber">Account Number</label>
+                                <input asp-for="Employee.AccountNumber" class="form-control" placeholder="XX-XXXX-XXXXXXX-XX" />
+                                <span class="help-text">Format: XX-XXXX-XXXXXXX-XX</span>
+                            </div>
+                        </div>
+                    </div>
+                    *@
+
+                    @* NOT IN DTO - Additional Information section commented out
+                    <div class="form-section">
+                        <h3>Additional Information</h3>
+                        <div class="form-grid single">
+                            <div class="form-group">
+                                <label asp-for="Employee.Bio">About Me</label>
+                                <textarea asp-for="Employee.Bio" class="form-control" placeholder="Tell us a bit about yourself..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    *@
+
+                    @* Action Buttons *@
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                        <a asp-page="/Dashboard/Employee" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+
+@*@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}    add runtime verificaiton for self edit details *@

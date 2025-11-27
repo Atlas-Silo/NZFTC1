@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "g:\\Repos\\NZFTC\\src\\NZFTC.Data\\NZFTC.Data.csproj": {}
+    "Y:\\NZFTC - Copy\\src\\NZFTC.Data\\NZFTC.Data.csproj": {}
   },
   "projects": {
-    "g:\\Repos\\NZFTC\\src\\NZFTC.Data\\NZFTC.Data.csproj": {
+    "Y:\\NZFTC - Copy\\src\\NZFTC.Data\\NZFTC.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "g:\\Repos\\NZFTC\\src\\NZFTC.Data\\NZFTC.Data.csproj",
+        "projectUniqueName": "Y:\\NZFTC - Copy\\src\\NZFTC.Data\\NZFTC.Data.csproj",
         "projectName": "NZFTC.Data",
-        "projectPath": "g:\\Repos\\NZFTC\\src\\NZFTC.Data\\NZFTC.Data.csproj",
-        "packagesPath": "C:\\Users\\Ashra\\.nuget\\packages\\",
-        "outputPath": "g:\\Repos\\NZFTC\\src\\NZFTC.Data\\obj\\",
+        "projectPath": "Y:\\NZFTC - Copy\\src\\NZFTC.Data\\NZFTC.Data.csproj",
+        "packagesPath": "C:\\Users\\v\\.nuget\\packages\\",
+        "outputPath": "Y:\\NZFTC - Copy\\src\\NZFTC.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Ashra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\v\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -50,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.21, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.21, )"
@@ -61,6 +65,12 @@
               "version": "[8.0.21, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.21, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.21, )"
             }

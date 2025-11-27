@@ -1,0 +1,105 @@
+@page
+@model HRReportsModel
+@{
+    ViewData["Title"] = "HR Reports";
+    ViewData["PageTitle"] = "HR Summary Reports";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/reports.css" asp-append-version="true" />
+}
+
+<div class="layout">
+    <partial name="_AdminSidebar" />
+
+    <div class="main-content">
+        <partial name="_Topbar" />
+
+        <main class="content">
+            <div class="container">
+                <h1>HR Summary Reports</h1>
+                <p class="desc">Scope-limited HR reporting: basic leave request log and current leave balance snapshot. Advanced analytics, trend charts, headcount forecasting, training, performance scoring, and probation metrics are intentionally excluded per project scope.</p>
+                <div class="actions">
+                    <button class="btn-export" type="button" onclick="alert('CSV Export: backend endpoint will be implemented.')">Export CSV</button>
+                </div>
+
+                <h2>Recent Leave Requests</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Employee</th>
+                        <th>Type</th>
+                        <th>Days</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>14 Nov 2025</td>
+                        <td>Jane Doe</td>
+                        <td>Annual</td>
+                        <td>3</td>
+                        <td class="status approved">Approved</td>
+                    </tr>
+                    <tr>
+                        <td>13 Nov 2025</td>
+                        <td>Michael Brown</td>
+                        <td>Sick</td>
+                        <td>1</td>
+                        <td class="status approved">Approved</td>
+                    </tr>
+                    <tr>
+                        <td>12 Nov 2025</td>
+                        <td>Emma Wilson</td>
+                        <td>Annual</td>
+                        <td>2</td>
+                        <td class="status pending">Pending</td>
+                    </tr>
+                    <tr>
+                        <td>11 Nov 2025</td>
+                        <td>Sarah Chen</td>
+                        <td>Bereavement</td>
+                        <td>5</td>
+                        <td class="status approved">Approved</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h2>Leave Balances Snapshot</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Employee</th>
+                        <th>Annual Leave (days)</th>
+                        <th>Sick Leave (days)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Jane Doe</td>
+                        <td>15.5</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>Michael Brown</td>
+                        <td>10.0</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>Emma Wilson</td>
+                        <td>7.5</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>Sarah Chen</td>
+                        <td>20.0</td>
+                        <td>5</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p class="note">Placeholder data. Razor PageModel + EF Core binding will replace these rows.</p>
+            </div>
+        </main>
+    </div>
+</div>

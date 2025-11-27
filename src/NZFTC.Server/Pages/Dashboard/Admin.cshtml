@@ -1,0 +1,42 @@
+﻿@page
+@model Dashboard
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    ViewData["PageTitle"] = "Dashboard";
+}
+
+<div class="layout">
+    <partial name="_AdminSidebar" />
+    
+    <div class="main-content">
+        <partial name="_Topbar" />
+        
+
+        @*Main dashboard for admin users showing key metrics*@ 
+        <main class="content">
+            <div class="dashboard-main">
+                <section class="kpi-card">
+                    <span class="kpi-label">Total Employees</span>
+                    <span class="kpi-value" data-test="kpi-total">@Model.TotalEmployees</span>
+                </section>
+
+                <section class="kpi-card">
+                    <span class="kpi-label">Active Employees</span>
+                    <span class="kpi-value" data-test="kpi-active">@Model.ActiveEmployees</span>
+                </section>
+
+                <section class="kpi-card">
+                    <span class="kpi-label">Upcoming Holidays (30d)</span>
+                    <span class="kpi-value" data-test="kpi-holidays30">@Model.UpcomingHolidays30d</span>
+                </section>
+
+            </div>
+        </main>
+
+    </div>
+    
+</div>
+
+@section Scripts {
+   @*page specific script*@
+}

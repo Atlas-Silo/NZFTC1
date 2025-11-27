@@ -1,0 +1,86 @@
+@page
+@model SubmitModel
+@{
+    ViewData["PageTitle"] = "Submit a Grievance";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/grievances.css" asp-append-version="true" />
+}
+
+<div class="layout">
+    <partial name="_EmployeeSidebar" />
+    
+    <div class="main-content">
+        <partial name="_Topbar" />
+        
+        <main class="content">
+            <div class="page-header">
+                <h2>Submit a Grievance</h2>
+                <p>Report workplace concerns or complaints confidentially</p>
+            </div>
+
+            @* Success Message - Not in DTO *@
+            @*@if (Model.IsSuccess)
+            {
+                <div class="success-message">
+                    <h3>✓ Grievance Submitted Successfully</h3>
+                    <p>Your grievance has been received and assigned a case number. You will receive updates via email as your case progresses. You can track your case status in the "My Cases" section.</p>
+                </div>
+            }*@
+
+            <!-- Info Box -->
+            <div class="info-box">
+                <p><strong>Confidential & Protected:</strong> All grievances are handled with strict confidentiality. Your submission will be reviewed by HR and appropriate action will be taken. You are protected from retaliation under company policy.</p>
+            </div>
+
+            <!-- Warning Box -->
+            <div class="warning-box">
+                <p><strong>Important:</strong> Please provide as much detail as possible to help us investigate your concern effectively. Include specific dates, times, locations, and witnesses if applicable.</p>
+            </div>
+
+            <!-- Form Card -->
+            <div class="form-card">
+                <form method="post">
+                    <!-- Basic Information -->
+                    <div class="form-section">
+                        <h3>Basic Information</h3>
+
+                    
+
+
+                        <div class="form-group">
+                            <label asp-for="Subject">Subject/Title <span class="required">*</span></label>
+                            <input asp-for="Subject" type="text" placeholder="Brief summary of your concern" required>
+                            <span asp-validation-for="Subject" class="text-danger"></span>
+                            <span class="help-text">E.g., "Workplace Harassment Complaint" or "Safety Hazard in Warehouse"</span>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Description -->
+                    <div class="form-section">
+                        <h3>Detailed Description</h3>
+
+                        <div class="form-group">
+                            <label asp-for="Details">Description of Issue <span class="required">*</span></label>
+                            <textarea asp-for="Details" placeholder="Provide a detailed description of your concern..." required></textarea>
+                            <span asp-validation-for="Details" class="text-danger"></span>
+                            <span class="help-text">Include what happened, where, when, and how it affected you</span>
+                        </div>
+
+            
+
+                    @* buttons *@
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit Grievance</button>
+                        <a asp-page="MyCases" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+
+@* @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+} *@

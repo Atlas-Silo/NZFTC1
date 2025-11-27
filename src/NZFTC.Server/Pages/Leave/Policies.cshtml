@@ -1,0 +1,135 @@
+@page
+@model LeavePoliciesModel
+@{
+    ViewData["Title"] = "Leave Policies";
+    ViewData["PageTitle"] = "Leave Policy Configuration";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/leave.css" asp-append-version="true" />
+}
+
+<div class="layout">
+    <partial name="_EmployeeSidebar" />
+
+    <div class="main-content">
+        <partial name="_Topbar" />
+
+        <main class="content">
+            <div class="page-header">
+                <h2>Leave Policies & Entitlements</h2>
+                <p>View company leave policies and your current entitlements</p>
+            </div>
+
+            <!-- Current Entitlements Card -->
+            <div class="entitlements-card">
+                <h3>Your Current Leave Balances</h3>
+                <div class="balance-grid">
+                    <div class="balance-item">
+                        <div class="balance-label">Annual Leave</div>
+                        <div class="balance-value">@Model.Balances.AnnualLeave days</div>
+                        <div class="balance-meta">of @Model.Entitlements.AnnualLeave days per year</div>
+                    </div>
+                    <div class="balance-item">
+                        <div class="balance-label">Sick Leave</div>
+                        <div class="balance-value">@Model.Balances.SickLeave days</div>
+                        <div class="balance-meta">of @Model.Entitlements.SickLeave days per year</div>
+                    </div>
+                    <div class="balance-item">
+                        <div class="balance-label">Bereavement Leave</div>
+                        <div class="balance-value">@Model.Entitlements.BereavementLeave days</div>
+                        <div class="balance-meta">per event</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Policy Sections -->
+            <div class="policy-card">
+                <h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                    </svg>
+                    Annual Leave Policy
+                </h3>
+
+                <div class="policy-section">
+                    <h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                        Entitlement
+                    </h4>
+                    <p>All full-time employees are entitled to <strong>@Model.Entitlements.AnnualLeave days of paid annual leave</strong> per year, accruing from their start date. Part-time employees receive leave pro-rated based on their contracted hours.</p>
+                    <ul>
+                        <li>Leave accrues at a rate of 1.67 days per month</li>
+                        <li>Unused leave can be carried over to the following year (maximum 10 days)</li>
+                        <li>Leave cannot be taken until it has accrued</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 14h-3v3h-2v-3H8v-2h3v-3h2v3h3v2zm-3-7V3.5L18.5 9H13z"/>
+                        </svg>
+                        Application Process
+                    </h4>
+                    <p>To request annual leave:</p>
+                    <ul>
+                        <li>Submit requests at least <strong>2 weeks in advance</strong> for short leave (1-3 days)</li>
+                        <li>Submit requests at least <strong>4 weeks in advance</strong> for extended leave (4+ days)</li>
+                        <li>Requests are subject to manager approval and business needs</li>
+                        <li>You will receive a response within 3 business days</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>Important:</strong> Peak periods (December-January, public holidays) may have restrictions. Plan ahead and discuss with your manager early.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sick Leave Policy -->
+            <div class="policy-card">
+                <h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M21 5h-2.64l1.14-3.14L17.15 1l-1.46 4H3v2l2 6-2 6v2h18v-2l-2-6 2-6V5zm-5 9.5h-3V17h-2v-2.5H8v-2h3V10h2v2.5h3v2z"/>
+                    </svg>
+                    Sick Leave Policy
+                </h3>
+
+                <div class="policy-section">
+                    <p>All employees are entitled to <strong>@Model.Entitlements.SickLeave days of paid sick leave</strong> per year for genuine illness, injury, or medical appointments.</p>
+                    <ul>
+                        <li>Notify your manager as soon as possible (before your start time)</li>
+                        <li>Medical certificate required for absences of 3+ consecutive days</li>
+                        <li>Sick leave does not carry over to the next year</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Other Leave Types -->
+            <div class="policy-card">
+                <h3>Other Leave Types</h3>
+
+                <div class="policy-section">
+                    <h4>Bereavement Leave</h4>
+                    <p><strong>@Model.Entitlements.BereavementLeave days</strong> of paid compassionate leave is available in the event of loss of an immediate family member. Contact HR for approval.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h4>Public Holidays</h4>
+                    <p>All New Zealand public holidays are paid days off for full-time employees. If you're required to work on a public holiday, you will receive time-and-a-half plus an alternative day off.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h4>Unpaid Leave</h4>
+                    <p>Unpaid leave may be granted at the discretion of management for exceptional circumstances. Submit a request through your manager with supporting documentation.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Questions?</strong> Contact HR at hr@nzftc.co.nz or visit the HR office for assistance with leave policies.</p>
+            </div>
+        </main>
+    </div>
+</div>

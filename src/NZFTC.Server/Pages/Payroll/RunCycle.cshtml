@@ -1,0 +1,128 @@
+@page
+@model RunPayrollCycleModel
+@{
+    ViewData["Title"] = "Run Payroll Cycle";
+    ViewData["PageTitle"] = "Process Payroll Cycle";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/payroll.css" asp-append-version="true" />
+}
+
+<div class="layout">
+    <partial name="_AdminSidebar" />
+
+    <div class="main-content">
+        <partial name="_Topbar" />
+
+        <main class="content">
+            <div class="page-header">
+                <div class="page-title">
+                    <h2>Process Payroll Cycle</h2>
+                    <p>Calculate employee salaries, tax deductions, and generate payslips for the current pay period</p>
+                </div>
+            </div>
+
+            <!-- Status Banner -->
+            <div class="status-banner">
+                <div class="banner-content">
+                    <h3>Current Pay Period</h3>
+                    <p>@Model.PayPeriod.StartDate.ToString("MMMM d") - @Model.PayPeriod.EndDate.ToString("MMMM d, yyyy")</p>
+                    <p>Payment Date: @Model.PayPeriod.PaymentDate.ToString("MMMM d, yyyy")</p>
+                </div>
+                <div class="banner-stat">
+                    <div class="label">Total Net Payroll</div>
+                    <div class="value">@Model.Summary.TotalNetPayroll.ToString("C")</div>
+                </div>
+            </div>
+
+            <!-- Processing Info -->
+            <div class="progress-steps">
+                <h3>Payroll Processing</h3>
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                    </svg>
+                    <div class="alert-content">
+                        <strong>Ready to Process</strong>
+                        <p>Review employee data and click "Calculate Payroll" to process salary calculations and tax deductions for this pay period.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div class="two-column">
+                <!-- Main Panel -->
+                <div class="main-panel">
+                    <h3>Payroll Calculation</h3>
+
+                    <!-- Summary Section -->
+                    <div class="section">
+                        <h4>Period Summary</h4>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-label">Active Employees</div>
+                                <div class="stat-value">@Model.Summary.ActiveEmployees</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-label">Base Salaries</div>
+                                <div class="stat-value">@Model.Summary.TotalBaseSalaries.ToString("C")</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-label">Total Deductions</div>
+                                <div class="stat-value">@Model.Summary.TotalDeductions.ToString("C")</div>
+                            </div>
+                            <div class="stat-box success">
+                                <div class="stat-label">Net Payroll</div>
+                                <div class="stat-value success">@Model.Summary.TotalNetPayroll.ToString("C")</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Adjustments Section -->
+                    <div class="section">
+                        <h4>Pay Period Adjustments</h4>
+                        
+                        <div class="alert alert-info">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                            </svg>
+                            <div class="alert-content">
+                                <strong>Standard Calculations</strong>
+                                <p>Payroll will calculate base salaries and standard tax deductions for all active employees.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <form method="post">
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-full-width">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                Calculate Payroll
+                            </button>
+                            <a asp-page="/Payroll/Setup" class="btn btn-secondary btn-full-width">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Side Panel -->
+                <div class="side-panel">
+                    <div class="info-card">
+                        <h4>Processing Info</h4>
+                        <div class="info-item">
+                            <span class="info-label">Status</span>
+                            <span class="info-value">@Model.Status</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Last Processed</span>
+                            <span class="info-value">@Model.LastProcessedDate?.ToString("MMM d, yyyy")</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

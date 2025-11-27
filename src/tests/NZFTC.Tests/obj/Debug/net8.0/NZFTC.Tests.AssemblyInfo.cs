@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NZFTC.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+168dda98a7f14569435e44bb367239b582c7d315")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f48754b231a56daa6e30f3d5c2e124ba0e568582")]
 [assembly: System.Reflection.AssemblyProductAttribute("NZFTC.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NZFTC.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

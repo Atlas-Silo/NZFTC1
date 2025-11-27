@@ -1,0 +1,162 @@
+@page
+@model LeaveApprovalsModel
+@{
+    ViewData["Title"] = "Leave Approvals";
+    ViewData["PageTitle"] = "Manage Leave Requests";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/leave.css" asp-append-version="true" />
+}
+
+<div class="layout">
+    <partial name="_AdminSidebar" />
+
+    <div class="main-content">
+        <partial name="_Topbar" />
+
+        <main class="content">
+            <div class="page-header">
+                <h2>Manage Leave Requests</h2>
+                <p>Review and approve or reject leave requests from your team</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card pending">
+                    <h3>Pending Requests</h3>
+                    <div class="value">@Model.Stats.PendingRequests</div>
+                </div>
+                <div class="stat-card approved">
+                    <h3>Approved This Month</h3>
+                    <div class="value">@Model.Stats.ApprovedThisMonth</div>
+                </div>
+                <div class="stat-card rejected">
+                    <h3>Rejected This Month</h3>
+                    <div class="value">@Model.Stats.RejectedThisMonth</div>
+                </div>
+                <div class="stat-card total">
+                    <h3>Total This Month</h3>
+                    <div class="value">@Model.Stats.TotalThisMonth</div>
+                </div>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <form method="get">
+                    <div class="filter-grid">
+                        <div class="filter-group">
+                            <label>Search Employee</label>
+                            <input type="text" name="search" placeholder="Search by name or ID..." value="@Model.SearchQuery" />
+                        </div>
+                        <div class="filter-group">
+                            <label>Leave Type</label>
+                            <select name="leaveType">
+                                <option value="">All Types</option>
+                                <option value="Annual">Annual Leave</option>
+                                <option value="Sick">Sick Leave</option>
+                                <option value="Personal">Personal Leave</option>
+                                <option value="Unpaid">Unpaid Leave</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Department</label>
+                            <select name="department">
+                                <option value="">All Departments</option>
+                                <option value="IT">IT</option>
+                                <option value="HR">HR</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Operations">Operations</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Date Range</label>
+                            <select name="dateRange">
+                                <option value="">All Time</option>
+                                <option value="today">Today</option>
+                                <option value="week">This Week</option>
+                                <option value="month">This Month</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Apply Filters</button>
+                </form>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" data-tab="pending">
+                    Pending
+                    <span class="badge-count">@Model.Stats.PendingRequests</span>
+                </button>
+                <button class="tab" data-tab="approved">Approved</button>
+                <button class="tab" data-tab="rejected">Rejected</button>
+                <button class="tab" data-tab="all">All Requests</button>
+            </div>
+
+            <!-- Requests Table -->
+            <div class="requests-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>Leave Type</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Days</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var request in Model.LeaveRequests)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="employee-cell">
+                                        <div class="employee-avatar">@request.EmployeeInitials</div>
+                                        <div class="employee-info">
+                                            <div class="employee-name">@request.EmployeeName</div>
+                                            <div class="employee-id">@request.EmployeeId</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="badge @request.LeaveType.ToLower()">@request.LeaveType</span></td>
+                                <td>@request.StartDate.ToString("MMM dd, yyyy")</td>
+                                <td>@request.EndDate.ToString("MMM dd, yyyy")</td>
+                                <td><strong>@request.Duration</strong></td>
+                                <td><span class="status @request.Status.ToLower()">@request.Status</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        @if (request.Status == "Pending")
+                                        {
+                                            <form method="post" asp-page-handler="Approve" asp-route-id="@request.Id" style="display: inline;">
+                                                <button type="submit" class="btn-icon btn-approve" title="Approve">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                            <form method="post" asp-page-handler="Reject" asp-route-id="@request.Id" style="display: inline;">
+                                                <button type="submit" class="btn-icon btn-reject" title="Reject">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                        }
+                                        <button class="btn-icon btn-view" title="View Details" onclick="viewRequest(@request.Id)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>

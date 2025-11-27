@@ -1,0 +1,10 @@
+﻿@page
+@model InvalidUserModel
+@{
+    ViewData["Title"] = "Invalid User";
+    ViewData["BodyClass"] = "simple-page";
+}
+<main class="card" role="main">
+    <p class="error-message" data-test="invalid-msg">Invalid email or password.</p>
+    <a class="btn" asp-page="/Login" data-test="invalid-back">Back to Login</a>
+</main>

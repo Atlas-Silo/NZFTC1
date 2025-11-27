@@ -1,0 +1,146 @@
+@page
+@model PaySlipsModel
+@{
+    ViewData["Title"] = "Pay Slips";
+    ViewData["PageTitle"] = "My Pay Slips";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/payroll.css" asp-append-version="true" />
+}
+
+<div class="layout">
+    <partial name="_EmployeeSidebar" />
+
+    <div class="main-content">
+        <partial name="_Topbar" />
+
+        <main class="content">
+            <div class="page-header">
+                <div class="page-title">
+                    <h2>My Pay Slips</h2>
+                    <p>View, download, and manage your payment history</p>
+                </div>
+            </div>
+
+            <!-- Info Banner -->
+            <div class="info-banner">
+                <div class="banner-content">
+                    <h3>Latest Payment</h3>
+                    <p>Pay Period: @Model.LatestPaySlip?.PeriodStart.ToString("MMMM d") - @Model.LatestPaySlip?.PeriodEnd.ToString("MMMM d, yyyy")</p>
+                    <p>Paid on: @Model.LatestPaySlip?.PaymentDate.ToString("MMMM d, yyyy")</p>
+                </div>
+                <div class="banner-stat">
+                    <div class="label">Net Pay</div>
+                    <div class="value">@Model.LatestPaySlip?.NetPay.ToString("C")</div>
+                </div>
+            </div>
+
+            <!-- Year Summary -->
+            <div class="year-summary">
+                <h3>@DateTime.Now.Year Year to Date Summary</h3>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <div class="summary-label">Gross Income</div>
+                        <div class="summary-value">@Model.YearSummary.GrossIncome.ToString("C")</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Total Tax Paid</div>
+                        <div class="summary-value">@Model.YearSummary.TotalTax.ToString("C")</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Net Income</div>
+                        <div class="summary-value highlight">@Model.YearSummary.NetIncome.ToString("C")</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <form method="get">
+                    <div class="filter-group">
+                        <label>Year</label>
+                        <select name="year">
+                            <option value="2025" selected>2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Month</label>
+                        <select name="month">
+                            <option value="">All Months</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <button type="submit" class="btn-filter">Apply Filter</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Pay Slips List -->
+            <div class="payslips-container">
+                @foreach (var payslip in Model.PaySlips)
+                {
+                    <div class="payslip-card">
+                        <div class="payslip-header">
+                            <div class="payslip-info">
+                                <div class="payslip-period">@payslip.PeriodStart.ToString("MMMM d") - @payslip.PeriodEnd.ToString("MMMM d, yyyy")</div>
+                                <div class="payslip-date">Payment Date: @payslip.PaymentDate.ToString("MMMM d, yyyy")</div>
+                            </div>
+                            <div class="payslip-status">
+                                <span class="badge paid">Paid</span>
+                            </div>
+                        </div>
+
+                        <div class="pay-details">
+                            <div class="pay-detail-item">
+                                <div class="pay-detail-label">Gross Pay</div>
+                                <div class="pay-detail-value">@payslip.GrossPay.ToString("C")</div>
+                            </div>
+                            <div class="pay-detail-item">
+                                <div class="pay-detail-label">Tax</div>
+                                <div class="pay-detail-value">@payslip.Tax.ToString("C")</div>
+                            </div>
+                            <div class="pay-detail-item">
+                                <div class="pay-detail-label">Deductions</div>
+                                <div class="pay-detail-value">@payslip.Deductions.ToString("C")</div>
+                            </div>
+                            <div class="pay-detail-item">
+                                <div class="pay-detail-label">Net Pay</div>
+                                <div class="pay-detail-value net">@payslip.NetPay.ToString("C")</div>
+                            </div>
+                        </div>
+
+                        <div class="payslip-actions">
+                            <button class="btn btn-view" onclick="viewPayslip(@payslip.Id)">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                </svg>
+                                View Details
+                            </button>
+                            <a asp-page-handler="Download" asp-route-id="@payslip.Id" class="btn btn-download">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                                </svg>
+                                Download PDF
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </main>
+    </div>
+</div>

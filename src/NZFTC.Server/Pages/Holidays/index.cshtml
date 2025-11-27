@@ -1,0 +1,63 @@
+@page
+@model HolidaysIndexModel
+@{
+    ViewData["Title"] = "Public Holidays";
+    ViewData["PageTitle"] = "Public Holidays";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/holidays.css">
+}
+
+<div class="layout">
+    <partial name="_EmployeeSidebar" />
+
+    <div class="main-content">
+        <partial name="_Topbar" />
+
+        <main class="content holidays-index">
+            <div class="page-header">
+                <h2>2025 Public Holidays</h2>
+                <p>View upcoming public holidays and company observances</p>
+            </div>
+
+            @* Calendar not implemented - using simple list *@
+            @*<div class="info-box" id="adminInfo" style="display: none;">
+                <p><strong>Admin Mode:</strong> Click any date on the calendar to add a new holiday or edit an existing holiday.</p>
+            </div>*@
+
+            <div class="info-box">
+                <p><strong>Note:</strong> Public holidays are automatically added to the calendar. Your leave balance is not affected by public holidays.</p>
+            </div>
+
+            <!-- Holidays List -->
+            <div class="holidays-list-card">
+                <h3>All Holidays</h3>
+
+                @if (Model.Holidays.Count == 0)
+                {
+                    <p>No holidays found.</p>
+                }
+                else
+                {
+                    @foreach (var holiday in Model.Holidays)
+                    {
+                        <div class="holiday-item">
+                            <div class="holiday-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/>
+                                </svg>
+                                @holiday.Date.ToString("MMMM dd, yyyy - dddd")
+                            </div>
+                            <div class="holiday-name">@holiday.Name</div>
+                            @if (!string.IsNullOrEmpty(holiday.Region))
+                            {
+                                <div class="holiday-region">Region: @holiday.Region</div>
+                            }
+                        </div>
+                    }
+                }
+            </div>
+        </main>
+    </div>
+</div>

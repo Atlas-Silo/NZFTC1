@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "g:\\Repos\\NZFTC\\src\\tests\\NZFTC.Tests\\NZFTC.Tests.csproj": {}
+    "G:\\Repos\\NZFTC\\src\\tests\\NZFTC.Tests\\NZFTC.Tests.csproj": {}
   },
   "projects": {
-    "g:\\Repos\\NZFTC\\src\\tests\\NZFTC.Tests\\NZFTC.Tests.csproj": {
+    "G:\\Repos\\NZFTC\\src\\tests\\NZFTC.Tests\\NZFTC.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "g:\\Repos\\NZFTC\\src\\tests\\NZFTC.Tests\\NZFTC.Tests.csproj",
+        "projectUniqueName": "G:\\Repos\\NZFTC\\src\\tests\\NZFTC.Tests\\NZFTC.Tests.csproj",
         "projectName": "NZFTC.Tests",
-        "projectPath": "g:\\Repos\\NZFTC\\src\\tests\\NZFTC.Tests\\NZFTC.Tests.csproj",
+        "projectPath": "G:\\Repos\\NZFTC\\src\\tests\\NZFTC.Tests\\NZFTC.Tests.csproj",
         "packagesPath": "C:\\Users\\Ashra\\.nuget\\packages\\",
-        "outputPath": "g:\\Repos\\NZFTC\\src\\tests\\NZFTC.Tests\\obj\\",
+        "outputPath": "G:\\Repos\\NZFTC\\src\\tests\\NZFTC.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.21, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[18.0.0, )"

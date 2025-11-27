@@ -1,40 +1,42 @@
 ﻿@page
 @model NZFTC.Server.Pages.Account.LoginModel
 @{
+    Layout = "_LoginLayout"; // Loging has different layout from main app only
     ViewData["Title"] = "Login";
-    ViewData["BodyClass"] = "login-page";
+    ViewData["PageTitle"] = "Sign in to your account";
 }
 
-<main class="card login-card" role="main">
-    <h1>Login</h1>
+<h1>Login</h1>
+<p class="subtitle">Sign in to your account</p>
 
-    @if (Model.ErrorMessage is not null)
-    {
-        <p class="error-message">@Model.ErrorMessage</p>
-    }
+@if (Model.ErrorMessage is not null)
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
 
-    <form class="form" method="post">
-        <div class="form-group">
-            <label asp-for="Input.Email">Email</label>
-            <input asp-for="Input.Email" data-test="login-email" />
-            <span asp-validation-for="Input.Email" class="text-danger"></span>
-        </div>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Input.Email">Email</label>
+        <input asp-for="Input.Email" type="email" data-test="login-email" />
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+    </div>
 
-        <div class="form-group">
-            <label asp-for="Input.Password">Password</label>
-            <input asp-for="Input.Password" type="password" data-test="login-password" />
-            <span asp-validation-for="Input.Password" class="text-danger"></span>
-        </div>
+    <div class="form-group">
+        <label asp-for="Input.Password">Password</label>
+        <input asp-for="Input.Password" type="password" data-test="login-password" />
+        <span asp-validation-for="Input.Password" class="text-danger"></span>
+    </div>
 
-        <div class="form-group form-group-inline">
-            <input asp-for="Input.RememberMe" data-test="login-remember" />
+    <div class="remember-forgot">
+        <div class="remember-me">
+            <input asp-for="Input.RememberMe" type="checkbox" data-test="login-remember" />
             <label asp-for="Input.RememberMe">Remember me</label>
         </div>
+        <a href="#" class="forgot-link">Forgot password?</a>
+    </div>
 
-        <button type="submit" class="btn primary" data-test="login-submit">Sign In</button>
-        <p class="form-note"><a href="#" aria-disabled="true">Forgot password?</a></p>
-    </form>
-</main>
+    <button type="submit" class="btn btn-primary btn-block" data-test="login-submit">Sign In</button>
+</form>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

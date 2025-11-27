@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NZFTC.Shared.Dtos;
 
-namespace NZFTC.Pages.Leave
+namespace NZFTC.Server.Pages.Leave
 {
     public class MyLeaveRequestsModel : PageModel
     {

@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 
-namespace NZFTC.Pages.Employees
+namespace NZFTC.Server.Pages.Employees
 {
     public class DeleteEmployeeModel : PageModel
     {

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace NZFTC.Pages.Dashboard
+namespace NZFTC.Server.Pages.Dashboard
 {
     public class UserDashModel : PageModel
     {

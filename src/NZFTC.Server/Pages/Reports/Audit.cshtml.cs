@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NZFTC.Shared.Dtos;
 
-namespace NZFTC.Pages.Reports
+namespace NZFTC.Server.Pages.Reports
 {
     public class AuditReportModel : PageModel
     {

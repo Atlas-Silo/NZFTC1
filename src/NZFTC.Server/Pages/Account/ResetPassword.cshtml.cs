@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NZFTC.Shared;
 
-namespace NZFTC.Pages.Account
+namespace NZFTC.Server.Pages.Account
 {
     public class ResetPasswordModel : PageModel
     {

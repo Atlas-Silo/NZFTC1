@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 
-namespace NZFTC.Pages.Holidays
+namespace NZFTC.Server.Pages.Holidays
 {
     public class HolidaysIndexModel : PageModel
     {

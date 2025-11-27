@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 
-namespace NZFTC.Pages.Dashboard
+namespace NZFTC.Server.Pages.Dashboard
 {
     public class Dashboard : PageModel
     {

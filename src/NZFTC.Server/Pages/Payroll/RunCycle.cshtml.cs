@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NZFTC.Shared.Dtos;
 
-namespace NZFTC.Pages.Payroll
+namespace NZFTC.Server.Pages.Payroll
 {
     public class RunPayrollCycleModel : PageModel
     {

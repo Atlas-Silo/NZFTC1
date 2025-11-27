@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace NZFTC.Pages
+namespace NZFTC.Server.Pages
 {
     public class IndexModel : PageModel
     {

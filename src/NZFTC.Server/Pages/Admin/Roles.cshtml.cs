@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NZFTC.Shared.Dtos; // DTOs LOCATION in NZFTC.SHARED
 
-namespace NZFTC.Pages.Admin
+namespace NZFTC.Server.Pages.Admin
 {
     public class RolesModel : PageModel
     {

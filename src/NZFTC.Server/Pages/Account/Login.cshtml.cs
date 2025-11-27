@@ -1,17 +1,23 @@
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Identity;
+using NZFTC.Data.Entities;
 
-namespace NZFTC.Pages.Account
+namespace NZFTC.Server.Pages.Account
 {
     public class LoginModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
+     
+        // updated to match identity useage in program.cs <User>
+        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<User> _userManager;
 
-        public LoginModel(SignInManager<IdentityUser> signInManager)
+        public LoginModel(SignInManager<User> signInManager, UserManager<User> userManager)
         {
             _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         [BindProperty]
@@ -19,11 +25,17 @@ namespace NZFTC.Pages.Account
 
         public string? ErrorMessage { get; set; }
 
-        public void OnGet(string? returnUrl = null) { }
+
+        // Login form GET
+        public void OnGet(string? returnUrl = null)
+        {
+            // Render the login form
+        }
 
         public async Task<IActionResult> OnPostAsync(string? returnUrl = null)
         {
-            if (!ModelState.IsValid) return Page();
+            if (!ModelState.IsValid)
+                return Page();
 
             var result = await _signInManager.PasswordSignInAsync(
                 Input.Email,
@@ -33,7 +45,9 @@ namespace NZFTC.Pages.Account
             );
 
             if (result.Succeeded)
+            {
                 return RedirectToPage("/Dashboard/Employee");
+            }
 
             ErrorMessage = "Invalid login attempt.";
             return Page();

@@ -141,6 +141,12 @@ app.Use(async (context, next) =>
 app.MapControllers();
 app.MapRazorPages();
 
+// redirect default route to Account/Login.cshtml
+app.MapGet("/", () => Results.Redirect("/Account/Login"));
+
+
+
+
 // Removed Blazor-specific endpoints (MapBlazorHub, MapFallbackToPage("/_Host"))
 
 app.Run();

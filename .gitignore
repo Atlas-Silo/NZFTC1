@@ -1,0 +1,39 @@
+# Solution-level ignores
+*.user
+*.suo
+*.cache
+*.log
+*.tmp
+*.db
+
+# Build outputs
+bin/
+obj/
+
+# VS/VSCode
+.vs/
+.vscode/
+
+# Razor/Static web assets
+src/**/obj/**
+src/**/bin/**
+
+# Dotnet artifacts
+*.dll
+*.pdb
+*.exe
+*.runtimeconfig.json
+*.deps.json
+*.staticwebassets*.json
+
+# NuGet
+**/project.assets.json
+**/*.nuget.dgspec.json
+**/project.nuget.cache
+
+# User-specific
+appsettings.Development.json
+
+# OS
+Thumbs.db
+.DS_Store
